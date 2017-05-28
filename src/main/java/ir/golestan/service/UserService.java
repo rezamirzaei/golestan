@@ -21,8 +21,8 @@ public class UserService {
 
     @Transactional
     public boolean login(String username, String password) {
-        User user = userDAO.login(username, password);
-        if (user != null) {
+        User user = userDAO.getById(username);
+        if (user != null&&user.getPassword().compareTo(password)==0) {
             System.out.println(user.getPassword());
             httpSession.setAttribute("username", user.getUsername());
             httpSession.setAttribute("name", user.getName());
@@ -34,8 +34,7 @@ public class UserService {
     @Transactional
     public boolean signUp(String name, String  family, String username, String  password, Date birthDay, String  fatherName, Long  nationalNumber, Long  postalCode, String  address) {
         String rule ="user";
-        User user =   new User( name,  family, username,  password,  birthDay,  fatherName,  nationalNumber,  postalCode,  address);
-        user.setRole("user");
+        User user =   new User( name,  family, username,  password,"admin" , birthDay,  fatherName,  nationalNumber,  postalCode,  address);
         boolean valid = userDAO.validNewUser(username);
         if (valid) {
             userDAO.create(user);
@@ -50,13 +49,14 @@ public class UserService {
     public boolean changeInfo(String name, String  family, String  oldPassword ,String newPassword, String roles, Date birthDay, String  fatherName, Long  nationalNumber, Long  postalCode, String  address){
         User user = userDAO.login((String)httpSession.getAttribute("username"),oldPassword) ;
         if (user!=null) {
-             user =   new User( name,  family, (String)httpSession.getAttribute("username"),  newPassword,  birthDay,  fatherName,  nationalNumber,  postalCode,  address);
+             user =   new User( name,  family, (String)httpSession.getAttribute("username"),  newPassword,user.getRole(),  birthDay,  fatherName,  nationalNumber,  postalCode,  address);
             userDAO.update(user);
             return true;
         }
         return false;
     }
+    @Transactional
     public User loadUser(){
-      return userDAO.load((String)httpSession.getAttribute("username"));
+      return (User)userDAO.load((String)httpSession.getAttribute("username"));
     }
 }

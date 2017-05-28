@@ -25,12 +25,16 @@ public class User {
     Date birthDay;
     @Column
     String fatherName;
-    @Column(unique = true)
+    @Column
     Long nationalNumber;
     @Column
     Long postalCode;
     @Column
     String address;
+
+    public User(){
+
+    }
 
     public User(String name, String family, String username, String password, String roles, Date birthDay, String fatherName, Long nationalNumber, Long postalCode, String address) {
         this.name = name;
@@ -45,17 +49,7 @@ public class User {
         this.address = address;
     }
 
-    public User(String name, String family, String username, String password, Date birthDay, String fatherName, Long nationalNumber, Long postalCode, String address) {
-        this.name = name;
-        this.family = family;
-        this.username = username;
-        this.password = password;
-        this.birthDay = birthDay;
-        this.fatherName = fatherName;
-        this.nationalNumber = nationalNumber;
-        this.postalCode = postalCode;
-        this.address = address;
-    }
+
 
     public String getName() {
         return name;
