@@ -1,0 +1,126 @@
+@font-face{
+    font-family: 'IRYekan';
+    font-style: normal;
+    font-weight: 300;
+    url('Data/fonts/IRYekan.ttf') format('truetype');
+}
+@font-face{
+    font-family: 'Roboto-Light';
+    font-style: normal;
+    font-weight: 300;
+    url('Data/fonts/Roboto-Light.ttf') format('truetype');
+}
+@font-face{
+    font-family: 'Roboto-Regular';
+    font-style: normal;
+    font-weight: 300;
+    url('Data/fonts/Roboto-Regular.ttf') format('truetype');
+}
+.btn{
+    margin-top: 7px;
+    color: white;
+    background-color: #2b8efc;
+}
+body {
+    font-family: IRYekan,serif;
+}
+svg{
+    width: 100%;
+}
+
+.fa.fa-user-circle-o.fa-inverse {
+    font-size: 200px;
+}
+.aaa{
+    margin-top: 20px;
+    text-align: center;
+}
+.loginPanel {
+    margin-top: 15px;
+    background: #2b8efc;
+    box-shadow: 1px;
+    border-radius: 1%;
+}
+i {
+    vertical-align: middle;
+}
+form {
+    /*margin-left: 5px;*/
+    /*margin-right: 5px;*/
+    /*margin-bottom: 5px;*/
+    margin: 15px 15px 15px 15px;
+}
+
+#navigationBar ul li a img{
+    margin-top: -5px;
+}
+.navigationBar {
+    height: 48px;
+    border: 1px solid #7f8c8d;
+}
+
+.navigationBar li {
+    text-align: right;
+}
+
+.navigationBar .NavigationBarMenuText {
+    direction: rtl;
+    font-size: 14px;
+}
+
+.navigationBar .userImage {
+    width: 33px;
+    height: 33px;
+    border: 1px solid #3498db;
+}
+
+.navigationBar .glyphicon-th{
+    font-size: 20px;
+}
+
+.navigationBar .glyphicon-bell {
+    padding: 5px;
+    font-size: 20px;
+    color: white;
+    background-color: #7f8c8d;
+    margin-top: -5px;
+}
+
+.navigationBar .glyphicon-bell:hover {
+    color: black;
+    background-color: white;
+}
+.panel-header{
+    background: white;
+    font-family: Roboto-Regular, serif;
+    text-align: center;
+}
+.panel-footer{
+    background: white;
+    font-family: Roboto-Light, serif;
+    text-align: center;
+}
+.index-content{
+    text-align: center;
+}
+.index-content h1{
+font-size: 65px;
+}
+.btn.dropdown-toggle{
+    color: black;
+    background-color: white;
+    border-color: #7a7776;
+}
+.dropdown-menu.dropdown-menu-center li a{
+    text-align: center;
+}
+.btn.dropdown-toggle{
+    margin-top: 0;
+    width: 160px;
+}
+.table.table-bordered{
+    border-radius: 10px;
+}
+.panel-heading{
+    direction: rtl;
+}

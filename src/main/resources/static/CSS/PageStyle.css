@@ -1,0 +1,212 @@
+@font-face{
+    font-family: 'IRYekan';
+    font-style: normal;
+    font-weight: 300;
+    url('Data/fonts/IRYekan.ttf') format('truetype');
+}
+@font-face{
+    font-family: 'Roboto-Light';
+    font-style: normal;
+    font-weight: 300;
+url('Data/fonts/Roboto-Light.ttf') format('truetype');
+}
+@font-face{
+    font-family: 'Roboto-Regular';
+    font-style: normal;
+    font-weight: 300;
+url('Data/fonts/Roboto-Regular.ttf') format('truetype');
+}
+/* navigation bar style*/
+body{
+    font-family: IRYekan, serif;
+}
+
+#navigationBar ul li a img{
+    margin-top: -5px;
+}
+.navigationBar {
+    height: 48px;
+    border: 1px solid #7f8c8d;
+}
+
+.navigationBar li {
+    text-align: right;
+}
+
+.navigationBar .NavigationBarMenuText {
+    direction: rtl;
+    font-size: 14px;
+}
+
+.navigationBar .userImage {
+    width: 33px;
+    height: 33px;
+    border: 1px solid #3498db;
+}
+
+.navigationBar .glyphicon-th{
+    font-size: 20px;
+}
+
+.navigationBar .glyphicon-bell {
+    padding: 5px;
+    font-size: 20px;
+    color: white;
+    background-color: #7f8c8d;
+    margin-top: -5px;
+}
+
+.navigationBar .glyphicon-bell:hover {
+    color: black;
+    background-color: white;
+}
+
+/* navigation bar style end*/
+
+/*home page style*/
+.homePageContainer {
+    margin-top: 120px;
+}
+
+.homePageContainer a {
+    height: 100px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 24px;
+    margin-top: 20px;
+    margin-right: 3px;
+    margin-bottom: 20px;
+    padding: 30px 20px 20px 20px;
+    vertical-align: center;
+    color: #7f8c8d;
+}
+
+.homePageContainer .education {
+    border: 2px solid #9b59b6;
+    border-radius: 10px;
+}
+
+.homePageContainer .education:hover {
+    background-color: #9d59b6;
+    color: white;
+}
+
+.homePageContainer .finance {
+    border: 2px solid #3498db;
+    border-radius: 10px;
+}
+
+.homePageContainer .finance:hover {
+    background-color: #3498db;
+    color: white;
+}
+
+.homePageContainer .student {
+    border: 2px solid #2ecc71;
+    border-radius: 10px;
+}
+
+.homePageContainer .student:hover {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.homePageContainer .evaluation {
+    border: 2px solid #c0392b;
+    border-radius: 10px;
+}
+
+.homePageContainer .evaluation:hover {
+    background-color: #c0392b;
+    color: white;
+}
+
+.homePageContainer .registration {
+    border: 2px solid #e67e22;
+    border-radius: 10px;
+}
+
+.homePageContainer .registration:hover {
+    background-color: #e67e22;
+    color: white;
+}
+
+/*home page style end*/
+.RightToLeftDirection {
+    direction: rtl;
+}
+
+.rightToLeftّFloat {
+    float: right;
+}
+
+/*course register page and personal info page style*/
+
+.courseRegistering form, .personalInfo form {
+    color: #2b8efc;
+    border: 2px solid #8c8c8c;
+    border-radius: 10px;
+    margin-top: 35px;
+}
+
+.courseRegistering .formSubmitButton, .personalInfo .formSubmitButton, .courseRegistering .hoverOverChangeButton, .personalInfo .hoverOverChangeButton ,.choseCourse .formSubmitButton ,.courseEffort .formSubmitButton{
+    background-color: #2b8efc;
+    color: white;
+}
+
+.courseRegistering .titleForm, .personalInfo .titleForm {
+    font-size: 15px;
+    margin-right: 10px;
+}
+
+.courseRegistering .titleFormDiv ,.personalInfo .titleFormDiv{
+    text-align: right;
+}
+
+.courseRegistering .checkBoxForm{
+    margin-top: 2px;
+    margin-left: 10px;
+}
+
+.courseRegistering .checkBoxForm Label {
+    color: black;
+    font-size: 11px;
+    float: right;
+}
+
+.courseRegistering .timePickerClass ,.personalInfo .timePickerClass{
+    width: 200px;
+}
+/*course register page style end*/
+
+/*course effort page style start*/
+.containCourseEffortPage{
+    margin-top: 35px;
+}
+.choseCourse ,.courseEffort{
+    margin-top: 10px;
+    border: 2px solid #8c8c8c;
+    border-radius: 10px;
+    color: #2b8efc;
+    text-align: center;
+}
+.choseCourse label ,.courseEffort label ,.courseEffort p{
+    font-size: 25px;
+    text-align: left;
+}
+
+table thead tr th{
+    text-align: center;
+    color: black;
+    font-size: small;
+}
+
+table tbody tr td{
+    color: black;
+    text-align: center;
+    font-size: small;
+}
+.col-xs-12.col-sm-8.col-md-8.col-lg-6.rightToLeftّFloat{
+    margin-bottom: 20px;
+}
+/*Transcript page style end*/

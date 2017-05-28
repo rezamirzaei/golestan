@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>personal page</title>
+    <link rel="stylesheet" type="text/css" href="Data/bootstrap/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" type="text/css" href="Data/bootstrap/persianDatePicker/jquery.Bootstrap-PersianDateTimePicker.css"/>
+    <link rel="stylesheet" type="text/css" href="Data/bootstrap/css/bootstrap.min.css"/>
+    <script src="Data/Jquery/jquery-3.2.0.min.js"></script>
+    <script src="Data/bootstrap/js/bootstrap.js"></script>
+    <script src="Data/bootstrap/persianDatePicker/jalaali.js"></script>
+    <script src="Data/bootstrap/persianDatePicker/jquery.Bootstrap-PersianDateTimePicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="CSS/PageStyle.css">
+</head>
+<body>
+<nav class="navbar navbar-toggleable-md navbar-default bg-faded navigationBar">
+    <div class="container-fluid" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigationBar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand NavigationBarMenuText">سیستم جامع گلستان</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navigationBar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#" class="NavigationBarMenuText">دانشجو</a></li>
+                <li><a href="#" class="NavigationBarMenuText">آموزش</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-th"></span></a></li>
+                <li>
+                    <a href="#"><span class="glyphicon glyphicon-bell img-circle">
+                    </span><span class="label label-info">1</span></a>
+                </li>
+                <li><a href="#"><img src="Image/member-1.jpg" alt="UserImage" class="img-circle userImage"/></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container personalInfo">
+    <form class=" col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-xs-12 col-sm-10 col-md-10 col-lg-8 col-lg-8 form-horizontal">
+        <h1 class="RightToLeftDirection"><strong>اطلاعات شخصی</strong></h1>
+        <div class="row">
+            <div class="form-group">
+                <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2 rightToLeftّFloat titleFormDiv">
+                    <label class="control-label titleForm" for="name">نام</label>
+                </div>
+                <div class="col-xs-7 col-sm-8 col-md-5 col-lg-5 rightToLeftّFloat ">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <input type="text" id="name" class="form-control RightToLeftDirection" name="name"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2 rightToLeftّFloat titleFormDiv">
+                    <label class="control-label titleForm" for="familyName">نام خانوادگی</label>
+                </div>
+                <div class="col-xs-7 col-sm-8 col-md-5 col-lg-5 rightToLeftّFloat ">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <input type="text" id="familyName" class="form-control RightToLeftDirection" name="familyName"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2 rightToLeftّFloat titleFormDiv">
+                    <label class="control-label titleForm" for="fatherName" >نام پدر</label>
+                </div>
+                <div class="col-xs-7 col-sm-8 col-md-5 col-lg-5 rightToLeftّFloat ">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <input type="text" id="fatherName" class="form-control RightToLeftDirection" name="fatherName"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2 rightToLeftّFloat titleFormDiv">
+                    <label class="control-label titleForm" for="birthDay">تاریخ تولد </label>
+                </div>
+                <div class="col-xs-7 col-sm-8 col-md-5 col-lg-5 rightToLeftّFloat ">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="input-group">
+                            <input type="text" id="birthDay" class="form-control" placeholder="" data-mddatetimepicker="true" data-trigger="click" data-targetselector="#birthDay" data-groupid="group1" data-todate="true" data-enabletimepicker="false" data-placement="bottom" name="birthDay"/>
+                            <div class="input-group-btn" data-mddatetimepicker="true" data-trigger="click" data-targetselector="#birthDay" data-groupid="group1" data-todate="true" data-enabletimepicker="false" data-placement="bottom">
+                                <button class="btn btn-default" type="button">
+                                    <i class="glyphicon glyphicon-calendar"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2 rightToLeftّFloat titleFormDiv">
+                    <label class="control-label titleForm" for="nationalNumber" >شماره ملی</label>
+                </div>
+                <div class="col-xs-7 col-sm-8 col-md-5 col-lg-5 rightToLeftّFloat ">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <input type="text" id="nationalNumber" class="form-control" name="nationalNumber"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2 rightToLeftّFloat titleFormDiv">
+                    <label class="control-label titleForm" for="address" >آدرس</label>
+                </div>
+                <div class="col-xs-7 col-sm-8 col-md-5 col-lg-5 rightToLeftّFloat ">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <textarea rows="5" id="address" class="form-control RightToLeftDirection" name="address"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2 rightToLeftّFloat titleFormDiv">
+                    <label class="control-label titleForm" for="postalCode" >کد پستی</label>
+                </div>
+                <div class="col-xs-7 col-sm-8 col-md-5 col-lg-5 rightToLeftّFloat ">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <input type="text" id="postalCode" class="form-control" name="postalCode"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <div class="col-lg-2 rightToLeftّFloat"></div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-5 rightToLeftّFloat">
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <button class="col-xs-12 col-sm-12 col-md-12 col-lg-12 btn btn-default formSubmitButton" type="submit">تایید</button>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <button class="col-xs-12 col-sm-12 col-md-12 col-lg-12 btn btn-default formSubmitButton" type="button">انصراف</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

@@ -16,14 +16,14 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>
     <meta name="viewport" content="width=device-width"/>
     <!-- Css Files Start -->
-    <link href="css/style.css" rel="stylesheet" type="text/css" /><!-- All css -->
-    <link href="css/bs.css" rel="stylesheet" type="text/css" /><!-- Bootstrap Css -->
-    <link rel="stylesheet" type="text/css" href="css/main-slider.css" /><!-- Main Slider Css -->
-    <!--[if lte IE 10]><link rel="stylesheet" type="text/css" href="css/customIE.css" /><![endif]-->
-    <link href="css/font-awesome.css" rel="stylesheet" type="text/css" /><!-- Font Awesome Css -->
-    <link href="css/font-awesome-ie7.css" rel="stylesheet" type="text/css" /><!-- Font Awesome iE7 Css -->
+    <link href="/css/style.css"  rel="stylesheet" type="text/css" /><!-- All css -->
+    <link href="/css/bs.css" rel="stylesheet" type="text/css" /><!-- Bootstrap Css -->
+    <link rel="stylesheet" type="text/css" href="/css/main-slider.css" /><!-- Main Slider Css -->
+    <!--[if lte IE 10]><link rel="stylesheet" type="text/css"  href="/css/customIE.css" /><![endif]-->
+    <link href="/css/font-awesome.css"   rel="stylesheet" type="text/css" /><!-- Font Awesome Css -->
+    <link href="/css/font-awesome-ie7.css"  rel="stylesheet" type="text/css" /><!-- Font Awesome iE7 Css -->
     <noscript>
-        <link rel="stylesheet" type="text/css" href="css/noJS.css" />
+        <link rel="stylesheet" type="text/css" href="/css/noJS.css"  />
     </noscript>
     <!-- Css Files End -->
 </head>
@@ -36,19 +36,18 @@
         <section class="container-fluid container">
             <section class="row-fluid">
                 <section class="span4">
-                    <h1 id="logo"> <a href="index.html"><img src="images/logo.png" /></a> </h1>
+                    <h1 id="logo"> <a href="index.html"><img src="/images/logo.png" /></a> </h1>
                 </section>
                 <section class="span8" style="margin-top: 50px;">
                     <ul class="top-nav2">
                         <!-- <li><a href="checkout.html">My Account</a></li> -->
                         <!-- <li><a href="cart.html">My Cart</a></li> -->
-                        <li><a href="checkout.html">ورود/ثبت نام</a></li>
+                        <li><a href="/account" th:text="${session.name!=null}? ${session.name}: 'ورود/ثبت نام'"  >ورود/ثبت نام</a></li>
                         <li><a href="order-recieved.html">پیگیری</a></li>
                     </ul>
                     <div class="search-bar">
-                        <input name="" type="button" value="جستجو" />
-                        <input name="" type="text" value="در این محل جستجو کنید ..." />
-
+                        <input name=""  type="button"  value="جستجو" />
+                        <input name=""  type="text"  value="در این محل جستجو کنید ..." />
                     </div>
                 </section>
             </section>
@@ -58,7 +57,7 @@
             <div class="navbar navbar-inverse">
                 <div class="navbar-inner">
                     <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-                    <div class="nav-collapse collapse">
+               =     <div class="nav-collapse collapse">
                         <ul class="nav" >
 
                             <!-- float=right <li class="dropdown"> <a class="dropdown-toggle" href="grid-view.html" data-toggle="dropdown"><i class="icon-heart"></i> Features<b class="caret"></b> </a>
@@ -106,12 +105,12 @@
                             <div class="bb-item" >
                                 <div class="bb-custom-content">
                                     <div class="slide-inner">
-                                        <div class="span4 book-holder"> <a href="book-detail.html"><img src="images/image01.jpg" alt="Book" /></a>
+                                        <div class="span4 book-holder"> <a href="book-detail.html"><img src="/images/image01.jpg" alt="Book" /></a>
                                             <div class="cart-price"> <a class="cart-btn2" href="cart.html">اضافه کردن به سبد خرید</a> <span class="price">20.000 تومان</span> </div>
                                         </div>
                                         <div class="span8 book-detail" style="text-align: right">
                                             <h2>اولین پیشنهاد ویژه </h2>
-                                            <strong class="title">کتابی خواندنی</strong> <span class="rating-bar"> <img src="images/raing-star2.png" alt="Rating Star" /> </span> <a href="book-detail.html" class="shop-btn">همین حالا خرید کنید</a>
+                                            <strong class="title">کتابی خواندنی</strong> <span class="rating-bar"> <img src="/images/raing-star2.png" alt="Rating Star" /> </span> <a href="book-detail.html" class="shop-btn">همین حالا خرید کنید</a>
                                             <div class="cap-holder">
                                                 <p> توضیحاتی در مورد کتاب </p>
                                                 <a href="book-detail.html">ادامه مطلب</a> </div>
@@ -122,12 +121,12 @@
                             <div class="bb-item">
                                 <div class="bb-custom-content">
                                     <div class="slide-inner">
-                                        <div class="span4 book-holder"> <a href="book-detail.html"><img src="images/image01.jpg" alt="Book" /></a>
+                                        <div class="span4 book-holder"> <a href="book-detail.html"><img src="/images/image01.jpg" alt="Book" /></a>
                                             <div class="cart-price"> <a class="cart-btn2" href="cart.html">اضافه کردن به سبد خرید</a> <span class="price">20.000 تومان</span> </div>
                                         </div>
                                         <div class="span8 book-detail" style="text-align: right">
                                             <h2>دومین پیشنهاد ویژه</h2>
-                                            <strong class="title">کتابی خواندنی</strong> <span class="rating-bar"> <img src="images/raing-star2.png" alt="Rating Star" /> </span> <a href="book-detail.html" class="shop-btn">همین حالا خرید کنید</a>
+                                            <strong class="title">کتابی خواندنی</strong> <span class="rating-bar"> <img src="/images/raing-star2.png" alt="Rating Star" /> </span> <a href="book-detail.html" class="shop-btn">همین حالا خرید کنید</a>
                                             <div class="cap-holder">
                                                 <p> توضیحاتی در مورد کتاب </p>
                                                 <a href="book-detail.html">ادامه مطلب</a> </div>
@@ -155,7 +154,7 @@
                     </div>
                     <nav class="bb-custom-nav"> <a href="#" id="bb-nav-prev" class="left-arrow">Previous</a> <a href="#" id="bb-nav-next" class="right-arrow">Next</a> </nav>
                 </section>
-                <span class="slider-bottom"><img src="images/slider-bg.png" alt="Shadow"/></span> </section>
+                <span class="slider-bottom"><img src="/images/slider-bg.png" alt="Shadow"/></span> </section>
             <section class="span12 wellcome-msg m-bottom first">
                 <h2>به فروشگاه ما خوش آمدید</h2>
                 <!-- <p>Offering a wide selection of books on thousands of topics at low prices to satisfy any book-lover!</p> -->
@@ -368,11 +367,11 @@
 
                 <section class="grid-holder features-books">
                     <figure class="span4 slide" th:each="book : ${books}">
-                        <a href="book-detail.html"><img src="images/image25.jpg" alt="" class="pro-img"/></a>
-                        <span class="title"><a href="book-detail.html" th:text="${book.name}">کلیدر</a></span>
-                        <span class="rating-bar"><img src="images/rating-star.png" alt="Rating Star"/></span>
+                        <a href="book-detail.html" th:href="@{/book/{bookId}(bookId=${book.id})}"><img src="/images/image25.jpg" alt="" class="pro-img"/></a>
+                        <span class="title"><a href="book-detail.html" th:href="@{/book/{bookId}(bookId=${book.id})}" th:text="${book.name}">کلیدر</a></span>
+                        <span class="rating-bar"><img src="/images/rating-star.png" alt="Rating Star"/></span>
                         <div class="cart-price">
-                            <a class="cart-btn2" href="cart.html" >Add to Cart</a>
+                            <a class="cart-btn2" href="cart.html" th:href="@{/sell/{bookId}(bookId=${book.id})}" >Add to Cart</a>
                             <span class="price" th:text="${book.price}">20.000 تومان</span>
                         </div>
                     </figure>
@@ -408,7 +407,7 @@
                         <div class="side-inner-holder">
                             <strong class="title">دسته بندی</strong>
                             <ul class="side-list">
-                                <li th:each="category : ${categorys}"><a href="grid-view.html" th:text="${category.name}" >هنر</a></li>
+                                <li th:each="category : ${categorys}"><a href="grid-view.html" th:text="${category}" >هنر</a></li>
                             </ul>
                             <strong class="title">قیمت (تومان)</strong>
                             <ul class="side-list">
@@ -417,7 +416,7 @@
                             </ul>
                             <strong class="title">نویسنده</strong>
                             <ul class="side-list">
-                                <li th:each="writer : ${writers}"><a href="book-detail.html" th:text="${category.name}" >سید علی صالحی</a></li>
+                                <li th:each="writer : ${writers}"><a href="book-detail.html" th:text="${category}" >سید علی صالحی</a></li>
                             </ul>
                         </div>
                     </article>
@@ -509,27 +508,27 @@
                     <h4>تازه ها</h4>
                     <ul class="f2-img-list">
                         <li>
-                            <div class="left"><a href="book-detail.html"><img src="images/image19.jpg" /></a></div>
+                            <div class="left"><a href="book-detail.html"><img src="/images/image19.jpg" /></a></div>
                             <div class="right"> <strong class="title"><a href="book-detail.html">fields</a></strong> <span class="by-author">by Arnold Grey</span> <span class="f-price">$127.55</span> </div>
                         </li>
                         <li>
-                            <div class="left"><a href="book-detail.html"><img src="images/image31.jpg" /></a></div>
+                            <div class="left"><a href="book-detail.html"><img src="/images/image31.jpg" /></a></div>
                             <div class="right"> <strong class="title"><a href="book-detail.html">Garfield</a></strong> <span class="by-author">by Arnold Grey</span> <span class="f-price">$127.55</span> </div>
                         </li>
                         <li>
-                            <div class="left"><a href="book-detail.html"><img src="images/image32.jpg" /></a></div>
+                            <div class="left"><a href="book-detail.html"><img src="/images/image32.jpg" /></a></div>
                             <div class="right"> <strong class="title"><a href="book-detail.html">Penselviniya</a></strong> <span class="by-author">by Arnold Grey</span> <span class="f-price">$127.55</span> </div>
                         </li>
                         <li>
-                            <div class="left"><a href="book-detail.html"><img src="images/image33.jpg" /></a></div>
+                            <div class="left"><a href="book-detail.html"><img src="/images/image33.jpg" /></a></div>
                             <div class="right"> <strong class="title"><a href="book-detail.html">Exemption</a></strong> <span class="by-author">by Arnold Grey</span> <span class="f-price">$127.55</span> </div>
                         </li>
                         <li>
-                            <div class="left"><a href="book-detail.html"><img src="images/image34.jpg" /></a></div>
+                            <div class="left"><a href="book-detail.html"><img src="/images/image34.jpg" /></a></div>
                             <div class="right"> <strong class="title"><a href="book-detail.html">Penfield</a></strong> <span class="by-author">by Arnold Grey</span> <span class="f-price">$127.55</span> </div>
                         </li>
                         <li>
-                            <div class="left"><a href="book-detail.html"><img src="images/image32.jpg" /></a></div>
+                            <div class="left"><a href="book-detail.html"><img src="/images/image32.jpg" /></a></div>
                             <div class="right"> <strong class="title"><a href="book-detail.html">Doors</a></strong> <span class="by-author">by Arnold Grey</span> <span class="f-price">$127.55</span> </div>
                         </li>
                     </ul>
@@ -538,28 +537,28 @@
                     <h4>بیشترین امتیاز</h4>
                     <ul class="f2-img-list">
                         <li>
-                            <div class="left"><a href="book-detail.html"><img src="images/image35.jpg" alt=""/></a></div>
-                            <div class="right"> <strong class="title"><a href="book-detail.html">A little rain</a></strong> <span class="by-author">by Arnold Grey</span> <span class="rating-bar"><img src="images/rating-star.png" alt="Rating Star"/></span> </div>
+                            <div class="left"><a href="book-detail.html"><img src="/images/image35.jpg" alt=""/></a></div>
+                            <div class="right"> <strong class="title"><a href="book-detail.html">A little rain</a></strong> <span class="by-author">by Arnold Grey</span> <span class="rating-bar"><img src="/images/rating-star.png" alt="Rating Star"/></span> </div>
                         </li>
                         <li>
-                            <div class="left"><a href="book-detail.html"><img src="images/image33.jpg" alt="" /></a></div>
-                            <div class="right"> <strong class="title"><a href="book-detail.html">Son of Arabia</a></strong> <span class="by-author">by Arnold Grey</span> <span class="rating-bar"><img src="images/rating-star.png" alt="Rating Star"/></span> </div>
+                            <div class="left"><a href="book-detail.html"><img src="/images/image33.jpg" alt="" /></a></div>
+                            <div class="right"> <strong class="title"><a href="book-detail.html">Son of Arabia</a></strong> <span class="by-author">by Arnold Grey</span> <span class="rating-bar"><img src="/images/rating-star.png" alt="Rating Star"/></span> </div>
                         </li>
                         <li>
-                            <div class="left"><a href="book-detail.html"><img src="images/image32.jpg" alt="" /></a></div>
-                            <div class="right"> <strong class="title"><a href="book-detail.html">Serpents</a></strong> <span class="by-author">by Arnold Grey</span> <span class="rating-bar"><img src="images/rating-star.png" alt="Rating Star"/></span> </div>
+                            <div class="left"><a href="book-detail.html"><img src="/images/image32.jpg" alt="" /></a></div>
+                            <div class="right"> <strong class="title"><a href="book-detail.html">Serpents</a></strong> <span class="by-author">by Arnold Grey</span> <span class="rating-bar"><img src="/images/rating-star.png" alt="Rating Star"/></span> </div>
                         </li>
                         <li>
-                            <div class="left"><a href="book-detail.html"><img src="images/image34.jpg" alt="" /></a></div>
-                            <div class="right"> <strong class="title"><a href="book-detail.html">Guns</a></strong> <span class="by-author">by Arnold Grey</span> <span class="rating-bar"><img src="images/rating-star.png" alt="Rating Star"/></span> </div>
+                            <div class="left"><a href="book-detail.html"><img src="/images/image34.jpg" alt="" /></a></div>
+                            <div class="right"> <strong class="title"><a href="book-detail.html">Guns</a></strong> <span class="by-author">by Arnold Grey</span> <span class="rating-bar"><img src="/images/rating-star.png" alt="Rating Star"/></span> </div>
                         </li>
                         <li>
-                            <div class="left"><a href="book-detail.html"><img src="images/image19.jpg" alt=""/></a></div>
-                            <div class="right"> <strong class="title"><a href="book-detail.html">Garfield</a></strong> <span class="by-author">by Arnold Grey</span> <span class="rating-bar"><img src="images/rating-star.png" alt="Rating Star"/></span> </div>
+                            <div class="left"><a href="book-detail.html"><img src="/images/image19.jpg" alt=""/></a></div>
+                            <div class="right"> <strong class="title"><a href="book-detail.html">Garfield</a></strong> <span class="by-author">by Arnold Grey</span> <span class="rating-bar"><img src="/images/rating-star.png" alt="Rating Star"/></span> </div>
                         </li>
                         <li>
-                            <div class="left"><a href="book-detail.html"><img src="images/image35.jpg" alt="" /></a></div>
-                            <div class="right"> <strong class="title"><a href="book-detail.html">Wolfman</a></strong> <span class="by-author">by Arnold Grey</span> <span class="rating-bar"><img src="images/rating-star.png" alt="Rating Star"/></span> </div>
+                            <div class="left"><a href="book-detail.html"><img src="/images/image35.jpg" alt="" /></a></div>
+                            <div class="right"> <strong class="title"><a href="book-detail.html">Wolfman</a></strong> <span class="by-author">by Arnold Grey</span> <span class="rating-bar"><img src="/images/rating-star.png" alt="Rating Star"/></span> </div>
                         </li>
                     </ul>
                 </figure>
@@ -567,8 +566,8 @@
                     <h4>تیم ما</h4>
                     <ul class="f2-pots-list">
                         <li>  <a href="blog-detail.html">محمد کمانکش</a> </li>
-                        <li>  <a href="blog-detail.html">محمد کمانکش</a> </li>
-                        <li>  <a href="blog-detail.html">محمد کمانکش</a> </li>
+                        <li>  <a href="blog-detail.html">محمد میرزایی</a> </li>
+                        <li>  <a href="blog-detail.html">محمد یوسفی فر</a> </li>
                     </ul>
                 </figure>
             </section>
@@ -594,17 +593,17 @@
 </div>
 <!-- End Main Wrapper -->
 <!-- JS Files Start -->
-<script type="text/javascript" src="js/lib.js"></script><!-- lib Js -->
-<script type="text/javascript" src="js/modernizr.js"></script><!-- Modernizr -->
-<script type="text/javascript" src="js/easing.js"></script><!-- Easing js -->
-<script type="text/javascript" src="js/bs.js"></script><!-- Bootstrap -->
-<script type="text/javascript" src="js/bxslider.js"></script><!-- BX Slider -->
-<script type="text/javascript" src="js/input-clear.js"></script><!-- Input Clear -->
-<script src="js/range-slider.js"></script><!-- Range Slider -->
-<script src="js/jquery.zoom.js"></script><!-- Zoom Effect -->
-<script type="text/javascript" src="js/bookblock.js"></script><!-- Flip Slider -->
-<script type="text/javascript" src="js/custom.js"></script><!-- Custom js -->
-<script type="text/javascript" src="js/social.js"></script><!-- Social Icons -->
+<script type="text/javascript" src="/js/lib.js"></script><!-- lib Js -->
+<script type="text/javascript" src="/js/modernizr.js"></script><!-- Modernizr -->
+<script type="text/javascript" src="/js/easing.js"></script><!-- Easing js -->
+<script type="text/javascript" src="/js/bs.js"></script><!-- Bootstrap -->
+<script type="text/javascript" src="/js/bxslider.js"></script><!-- BX Slider -->
+<script type="text/javascript" src="/js/input-clear.js"></script><!-- Input Clear -->
+<script src="/js/range-slider.js"></script><!-- Range Slider -->
+<script src="/js/jquery.zoom.js"></script><!-- Zoom Effect -->
+<script type="text/javascript" src="/js/bookblock.js"></script><!-- Flip Slider -->
+<script type="text/javascript" src="/js/custom.js"></script><!-- Custom js -->
+<script type="text/javascript" src="/js/social.js"></script><!-- Social Icons -->
 <!-- JS Files End -->
 <noscript>
     <style>

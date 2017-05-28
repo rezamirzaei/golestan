@@ -15,14 +15,14 @@
 <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>
 <meta name="viewport" content="width=device-width"/>
 <!-- Css Files Start -->
-<link href="css/style.css" rel="stylesheet" type="text/css" /><!-- All css -->
-<link href="css/bs.css" rel="stylesheet" type="text/css" /><!-- Bootstrap Css -->
-<link rel="stylesheet" type="text/css" href="css/main-slider.css" /><!-- Main Slider Css -->
-<!--[if lte IE 10]><link rel="stylesheet" type="text/css" href="css/customIE.css" /><![endif]-->
-<link href="css/font-awesome.css" rel="stylesheet" type="text/css" /><!-- Font Awesome Css -->
-<link href="css/font-awesome-ie7.css" rel="stylesheet" type="text/css" /><!-- Font Awesome iE7 Css -->
+<link href="/css/style.css" rel="stylesheet" type="text/css" /><!-- All css -->
+<link href="/css/bs.css" rel="stylesheet" type="text/css" /><!-- Bootstrap Css -->
+<link rel="stylesheet" type="text/css" href="/css/main-slider.css" /><!-- Main Slider Css -->
+<!--[if lte IE 10]><link rel="stylesheet" type="text/css" href="/css/customIE.css" /><![endif]-->
+<link href="/css/font-awesome.css" rel="stylesheet" type="text/css" /><!-- Font Awesome Css -->
+<link href="/css/font-awesome-ie7.css" rel="stylesheet" type="text/css" /><!-- Font Awesome iE7 Css -->
 <noscript>
-<link rel="stylesheet" type="text/css" href="css/noJS.css" />
+<link rel="stylesheet" type="text/css" href="/css/noJS.css" />
 </noscript>
 <!-- Css Files End -->
 
@@ -45,14 +45,14 @@
     <section class="container-fluid container">
       <section class="row-fluid">
         <section class="span4">
-          <h1 id="logo"> <a href="index.html"><img src="images/logo.png" /></a> </h1>
+          <h1 id="logo"> <a href="index.html"><img src="/images/logo.png" /></a> </h1>
         </section>
         <section class="span8" style="margin-top: 50px;">
           <ul class="top-nav2">
             <!-- <li><a href="checkout.html">My Account</a></li> -->
             <!-- <li><a href="cart.html">My Cart</a></li> -->
-            <li><a href="checkout.html">ورود/ثبت نام</a></li>
-            <li><a href="order-recieved.html">پیگیری</a></li>
+              <li><a href="/account" th:text="${session.name!=null}? ${session.name}: 'ورود/ثبت نام'"  >ورود/ثبت نام</a></li>
+rr            <li><a href="order-recieved.html">پیگیری</a></li>
           </ul>
           <div class="search-bar">
             <input name="" type="button" value="جستجو" />
@@ -120,21 +120,21 @@
             <section class="b-detail-holder">
             	<article class="title-holder">
                 	<div class="span6" style="float:right;">
-                    	<h4><strong>کلیدر</strong> نوشته ی محمود دولت آبادی</h4>
+                    	<h4><strong th:text="${book.name}">کلیدر</strong><h3 th:text="${book.writer}" > نوشته ی محمود دولت آبادی</h3></h4>
                     </div>
                     
                 </article>
                 <div class="book-i-caption">
                 <!-- Strat Book Image Section -->
                 	<div class="span6 b-img-holder">
-                        <span class='zoom' id='ex1'> <img src='images/image26.jpg' height="219" width="300" id='jack' alt=''/></span>
+                        <span class='zoom' id='ex1'> <img src='/images/image26.jpg' height="219" width="300" id='jack' alt=''/></span>
                     </div>
                 <!-- Strat Book Image Section -->
                 
                 <!-- Strat Book Overview Section -->    
                     <div class="span6">
                     	<strong class="title">در مورد کتاب</strong>
-                    	<p>کِلیدَر اثری از محمود دولت‌آبادی، نویسنده معاصر است که در سه هزار صفحه و ده جلد به چاپ رسیده و روایت زندگی یک خانواده کرد ایرانی است که به سبزوار خراسان کوچانده شده‌اند. داستان کلیدر که متأثر از فضای ملتهب سیاسی ایران پس از جنگ جهانی دوم است بین سال‌های ۱۳۲۵ تا ۱۳۲۷ روی می‌دهد. کلیدر نام کوه و روستایی در شمال شرقی ایران است. 
+                    	<p th:text="${book.about}">کِلیدَر اثری از محمود دولت‌آبادی، نویسنده معاصر است که در سه هزار صفحه و ده جلد به چاپ رسیده و روایت زندگی یک خانواده کرد ایرانی است که به سبزوار خراسان کوچانده شده‌اند. داستان کلیدر که متأثر از فضای ملتهب سیاسی ایران پس از جنگ جهانی دوم است بین سال‌های ۱۳۲۵ تا ۱۳۲۷ روی می‌دهد. کلیدر نام کوه و روستایی در شمال شرقی ایران است.
 کلیدر که «سرنوشت تراژدیک رعیت‌های ایرانی و قبایل چادرنشین را در دوره‌ای که سیاست زور حاکم است به تصویر می‌کشد» بر اساس حوادث واقعی نگاشته شده و به شرح سختی‌ها و رنج‌هایی روا رفته بر خانواده کَلمیشی می‌پردازد. 
 کلیدر را می‌توان نقطه اوج رشته آثار پیشین دولت‌آبادی به حساب آورد، که اغلب آنان داستان‌هایی کوتاه درباره مردم زجرکشیده و رنجور دهات خراسان است. 
 </p>
@@ -142,7 +142,7 @@
                         <div class="comm-nav">
                         	<strong class="title2"></strong>
                             <ul>                            	
-                                <li class="b-price">20.000 تومان</li>
+                                <li class="b-price" th:text="${book.price}">20.000 تومان</li>
                                 <li style="padding-left: 20px;"><a href="cart.html" class="more-btn">اضافه کردن به سبد خرید</a></li>
                             </ul>                            
                         </div>
@@ -422,17 +422,17 @@ Quisque vulputate justo eu mattis interdum magna erat porta risus tincidunt </p>
 </div>
 <!-- End Main Wrapper -->
 <!-- JS Files Start -->
-<script type="text/javascript" src="js/lib.js"></script><!-- lib Js -->
-<script type="text/javascript" src="js/modernizr.js"></script><!-- Modernizr -->
-<script type="text/javascript" src="js/easing.js"></script><!-- Easing js -->
-<script type="text/javascript" src="js/bs.js"></script><!-- Bootstrap -->
-<script type="text/javascript" src="js/bxslider.js"></script><!-- BX Slider -->
-<script type="text/javascript" src="js/input-clear.js"></script><!-- Input Clear -->
-<script src="js/range-slider.js"></script><!-- Range Slider -->
-<script src="js/jquery.zoom.js"></script><!-- Zoom Effect -->
-<script type="text/javascript" src="js/bookblock.js"></script><!-- Flip Slider -->
-<script type="text/javascript" src="js/custom.js"></script><!-- Custom js -->
-<script type="text/javascript" src="js/social.js"></script><!-- Social Icons -->
+<script type="text/javascript" src="/js/lib.js"></script><!-- lib Js -->
+<script type="text/javascript" src="/js/modernizr.js"></script><!-- Modernizr -->
+<script type="text/javascript" src="/js/easing.js"></script><!-- Easing js -->
+<script type="text/javascript" src="/js/bs.js"></script><!-- Bootstrap -->
+<script type="text/javascript" src="/js/bxslider.js"></script><!-- BX Slider -->
+<script type="text/javascript" src="/js/input-clear.js"></script><!-- Input Clear -->
+<script src="/js/range-slider.js"></script><!-- Range Slider -->
+<script src="/js/jquery.zoom.js"></script><!-- Zoom Effect -->
+<script type="text/javascript" src="/js/bookblock.js"></script><!-- Flip Slider -->
+<script type="text/javascript" src="/js/custom.js"></script><!-- Custom js -->
+<script type="text/javascript" src="/js/social.js"></script><!-- Social Icons -->
 <!-- JS Files End -->
 <noscript>
 <style>
