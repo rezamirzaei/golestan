@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="rtl"  xmlns:th="http://www.thymeleaf.org">
 <head>
-    <link rel="stylesheet" type="text/css" href="Data/bootstrap/css/bootstrap-theme.min.css"/>
-    <link rel="stylesheet" type="text/css" href="Data/bootstrap/css/bootstrap.min.css"/>
-    <script src="Data/Jquery/jquery-3.2.0.min.js"></script>
-    <script src="Data/bootstrap/js/bootstrap.js"></script>
-    <link rel="stylesheet" type="text/css" href="CSS/stylesheet.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="Data/fonts/font-awesome.min.css">
-    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/Data/bootstrap/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/Data/bootstrap/css/bootstrap.min.css"/>
+    <script src="/Data/Jquery/jquery-3.2.0.min.js"></script>
+    <script src="/Data/bootstrap/js/bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" href="/CSS/stylesheet.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="/Data/fonts/font-awesome.min.css"/>
+    <meta charset="UTF-8"/>
     <title>Golestan</title>
 </head>
 <body>
@@ -24,14 +24,20 @@
         </div>
         <div class="collapse navbar-collapse" id="navigationBar">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#" class="NavigationBarMenuText">دانشجو</a></li>
-                <li><a href="#" class="NavigationBarMenuText">آموزش</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-th"></span></a></li>
-                <button type="button" class="btn" aria-haspopup="true">Sign in</button>
+                <li><button id="SingUp" type="button" class="btn" aria-haspopup="true">Sign up</button></li>
+                <li><button id="SingIn" type="button" class="btn" aria-haspopup="true">Sign in</button></li>
             </ul>
         </div>
     </div>
 </nav>
+<script>
+    $("#SingUp").on('click',function () {
+        window.location = '/signup';
+    });
+    $("#SingIn").on('click',function () {
+        window.location = '/signin';
+    })
+</script>
 <div class="col-md-3 col-sm-3 col-lg-3"></div>
 <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6">
     <div class=""></div>
@@ -60,3 +66,4 @@
 </div>
 <div class="col-md-3 col-sm-3 col-lg-3"></div>
 </body>
+</html>
