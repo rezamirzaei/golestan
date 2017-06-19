@@ -16,7 +16,7 @@ public class Term {
     int year;
     @Column
     int season;
-    @Column
+    @Column(unique = true)
     Long Code;
     public Term(){
 
