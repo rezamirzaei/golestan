@@ -1,6 +1,6 @@
 package ir.golestan.dao;
 
-import ir.golestan.model.Book;
+
 import ir.golestan.model.User;
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
@@ -59,7 +59,7 @@ public class UserDAO   {
     public boolean validNewUser(String username) {
         Criteria criteria = sessionFactory.getCurrentSession().createCriteria(User.class);
         criteria.add(Restrictions.eq("username", username));
-        List<Book> list = criteria.list();
+        List<User> list = criteria.list();
         if (list != null && list.size() > 0) {
             return false;
         }

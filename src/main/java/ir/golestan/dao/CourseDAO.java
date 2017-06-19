@@ -1,6 +1,5 @@
 package ir.golestan.dao;
 
-import ir.golestan.model.Book;
 import ir.golestan.model.Course;
 import ir.golestan.model.User;
 import org.hibernate.Criteria;
@@ -33,7 +32,7 @@ public class CourseDAO {
     public List getByName(String name){
         Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Course.class);
         criteria.add(Restrictions.eq("name", name));
-        List<Book> list = criteria.list();
+        List<Course> list = criteria.list();
         return list;
     }
     public void delete(Course course){
