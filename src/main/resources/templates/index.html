@@ -20,12 +20,19 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand NavigationBarMenuText">سیستم جامع گلستان</a>
+            <a href="/" class="navbar-brand NavigationBarMenuText">سیستم جامع گلستان</a>
         </div>
         <div class="collapse navbar-collapse" id="navigationBar">
             <ul class="nav navbar-nav navbar-right">
-                <li><button id="SingUp" type="button" class="btn" aria-haspopup="true">Sign up</button></li>
-                <li><button id="SingIn" type="button" class="btn" aria-haspopup="true">Sign in</button></li>
+                <li>
+                    <button id="SingUp" type="button" class="btn ButtonNav" aria-haspopup="true">
+                        ثبت نام
+                    </button>
+                </li>
+                <li></li>
+                <li>
+                    <button id="Login" type="button" class="btn ButtonNav" aria-haspopup="true">ورود</button>
+                </li>
             </ul>
         </div>
     </div>
@@ -34,8 +41,8 @@
     $("#SingUp").on('click',function () {
         window.location = '/signup';
     });
-    $("#SingIn").on('click',function () {
-        window.location = '/signin';
+    $("#Login").on('click',function () {
+        window.location = '/login';
     })
 </script>
 <div class="col-md-3 col-sm-3 col-lg-3"></div>

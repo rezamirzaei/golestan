@@ -16,7 +16,7 @@
     font-weight: 300;
     url('Data/fonts/Roboto-Regular.ttf') format('truetype');
 }
-.btn{
+.ButtonNav{
     margin-top: 7px;
     color: white;
     background-color: #2b8efc;

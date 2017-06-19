@@ -16,10 +16,10 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class MainControler {
     @Autowired
-    HttpSession httpSession ;
+    HttpSession httpSession;
 
-    @RequestMapping(value = "",method = RequestMethod.GET)
-    public String mainPage(Model model){
+    @RequestMapping(value = "", method = RequestMethod.GET)
+    public String mainPage(Model model) {
         return "index";
     }
 
