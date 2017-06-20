@@ -4,7 +4,6 @@ package ir.golestan.controller;
  * Created by Erfan Baharvand on 6/19/2017.
  */
 
-import javafx.application.Application;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +19,9 @@ public class MainControler {
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String mainPage(Model model) {
+        if (httpSession.getAttribute("username") != null) {
+            return "home";
+        }
         return "index";
     }
 
