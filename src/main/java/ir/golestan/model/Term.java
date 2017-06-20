@@ -1,7 +1,6 @@
 package ir.golestan.model;
 
 import javax.persistence.*;
-import java.time.Year;
 
 /**
  * Created by Reza-PC on 5/28/2017.
@@ -18,7 +17,8 @@ public class Term {
     int season;
     @Column(unique = true)
     Long Code;
-    public Term(){
+
+    public Term() {
 
     }
 

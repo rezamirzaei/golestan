@@ -1,7 +1,6 @@
 package ir.golestan.dao;
 
 import ir.golestan.model.Course;
-import ir.golestan.model.User;
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
@@ -19,26 +18,32 @@ public class CourseDAO {
     @Autowired
     @Qualifier("sessionFactory")
     SessionFactory sessionFactory;
-    public void create(Course course){
+
+    public void create(Course course) {
         sessionFactory.getCurrentSession().save(course);
     }
-    public Course getById(Long id){
-        return (Course)sessionFactory.getCurrentSession().get(Course.class,id);
+
+    public Course getById(Long id) {
+        return (Course) sessionFactory.getCurrentSession().get(Course.class, id);
     }
-    public List getAll(){
+
+    public List getAll() {
         Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Course.class);
         return criteria.list();
     }
-    public List getByName(String name){
+
+    public List getByName(String name) {
         Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Course.class);
         criteria.add(Restrictions.eq("name", name));
         List<Course> list = criteria.list();
         return list;
     }
-    public void delete(Course course){
+
+    public void delete(Course course) {
         sessionFactory.getCurrentSession().delete(course);
     }
-    public void update(Course course){
+
+    public void update(Course course) {
         sessionFactory.getCurrentSession().update(course);
     }
 }

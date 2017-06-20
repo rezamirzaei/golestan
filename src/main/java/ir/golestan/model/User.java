@@ -1,14 +1,16 @@
 package ir.golestan.model;
 
-import javax.persistence.*;
-import javax.validation.constraints.Pattern;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
 
 /**
  * Created by Reza-PC on 5/28/2017.
  */
 @Entity
-@Table(name="GOL_USER")
+@Table(name = "GOL_USER")
 public class User {
     @Column
     String name;
@@ -32,7 +34,7 @@ public class User {
     @Column
     String address;
 
-    public User(){
+    public User() {
 
     }
 
@@ -48,7 +50,6 @@ public class User {
         this.postalCode = postalCode;
         this.address = address;
     }
-
 
 
     public String getName() {

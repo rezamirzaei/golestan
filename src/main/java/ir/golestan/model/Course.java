@@ -14,39 +14,31 @@ public class Course {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     @Column(unique = true)
-    Long Code ;
+    Long Code;
 
     @ManyToOne
     Term term;
 
     @ManyToOne
-    User teacher ;
+    User teacher;
 
     @OneToMany
     List<CourseTimeInweak> presentationTime;
 
     @OneToMany
-    List<CourseTimeInweak> TATime ;
+    List<CourseTimeInweak> TATime;
     @Column
-    String name ;
+    String name;
     @Column
-    Date examTime ;
+    Date examTime;
     @ManyToMany
-    List<Course> prerequisiteCourses ;
+    List<Course> prerequisiteCourses;
     @Column
-    int type ;
+    int type;
     @Column
     int group;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Course(){
+    public Course() {
 
     }
 
@@ -61,6 +53,14 @@ public class Course {
         this.prerequisiteCourses = prerequisiteCourses;
         this.type = type;
         this.group = group;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getCode() {
@@ -142,10 +142,12 @@ public class Course {
     public void setGroup(int group) {
         this.group = group;
     }
-    public void addCourseTime(CourseTimeInweak courseTimeInweak){
-       this.presentationTime.add(courseTimeInweak);
+
+    public void addCourseTime(CourseTimeInweak courseTimeInweak) {
+        this.presentationTime.add(courseTimeInweak);
     }
-    public void addTATime(CourseTimeInweak courseTimeInweak){
+
+    public void addTATime(CourseTimeInweak courseTimeInweak) {
         this.TATime.add(courseTimeInweak);
     }
 }

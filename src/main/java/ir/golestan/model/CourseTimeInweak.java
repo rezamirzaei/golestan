@@ -11,19 +11,19 @@ public class CourseTimeInweak {
     @Column
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id ;
+    Long id;
     @Column
-    private int day ;
+    private int day;
     @Column
     private int startHour;
     @Column
-    private int startMin ;
+    private int startMin;
     @Column
-    private int endHour ;
+    private int endHour;
     @Column
-    private int endMin ;
+    private int endMin;
 
-    public CourseTimeInweak(){
+    public CourseTimeInweak() {
 
     }
 
@@ -40,8 +40,8 @@ public class CourseTimeInweak {
     }
 
     public void setDay(int day) {
-        if(0<=day&&day<7)
-        this.day = day;
+        if (0 <= day && day < 7)
+            this.day = day;
     }
 
     public int getStartHour() {
@@ -49,8 +49,8 @@ public class CourseTimeInweak {
     }
 
     public void setStartHour(int startHour) {
-        if(6<startHour&&startHour<20)
-        this.startHour = startHour;
+        if (6 < startHour && startHour < 20)
+            this.startHour = startHour;
     }
 
     public int getStartMin() {
@@ -76,7 +76,8 @@ public class CourseTimeInweak {
     public void setEndMin(int endMin) {
         this.endMin = endMin;
     }
-    public int GetDuring(){
-       return endHour*60+endMin-startHour*60-startMin;
+
+    public int GetDuring() {
+        return endHour * 60 + endMin - startHour * 60 - startMin;
     }
 }

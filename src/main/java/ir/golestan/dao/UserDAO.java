@@ -1,6 +1,5 @@
 package ir.golestan.dao;
 
-import ir.golestan.model.Course;
 import ir.golestan.model.User;
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
@@ -15,7 +14,7 @@ import java.util.List;
  * Created by Reza-PC on 5/28/2017.
  */
 @Repository
-public class UserDAO   {
+public class UserDAO {
     @Autowired
     @Qualifier("sessionFactory")
     SessionFactory sessionFactory;
@@ -26,7 +25,7 @@ public class UserDAO   {
 
 
     public User getById(String id) {
-        return (User)sessionFactory.getCurrentSession().get(User.class,id);
+        return (User) sessionFactory.getCurrentSession().get(User.class, id);
     }
 
 
@@ -44,14 +43,14 @@ public class UserDAO   {
     }
 
     public User load(String username) {
-        return (User)sessionFactory.getCurrentSession().get(User.class,username);
+        return (User) sessionFactory.getCurrentSession().get(User.class, username);
     }
 
     public User login(String username, String password) {
-         User user=load(username);
-            if (user!=null &&user.getPassword().compareTo(password)==0) {
-                return user;
-            }
+        User user = load(username);
+        if (user != null && user.getPassword().compareTo(password) == 0) {
+            return user;
+        }
 
         return null;
     }

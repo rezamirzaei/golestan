@@ -24,16 +24,18 @@ public class TermService {
     public Term load(Long code) {
         return termDAO.load(code);
     }
+
     @Transactional
-    public List<Term> loadAll(){
-     return termDAO.loadAll();
+    public List<Term> loadAll() {
+        return termDAO.loadAll();
     }
 
     @Transactional
-    public void deleteByCode(Long code){
+    public void deleteByCode(Long code) {
         Term term = load(code);
         this.delete(term);
     }
+
     @Transactional
     public void delete(Term term) {
         termDAO.delete(term);
