@@ -1,6 +1,6 @@
 package ir.golestan.dao;
 
-
+import ir.golestan.model.Course;
 import ir.golestan.model.User;
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;

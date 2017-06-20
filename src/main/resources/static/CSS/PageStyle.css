@@ -17,6 +17,11 @@ url('Data/fonts/Roboto-Light.ttf') format('truetype');
 url('Data/fonts/Roboto-Regular.ttf') format('truetype');
 }
 /* navigation bar style*/
+.ButtonNav{
+    margin-top: 7px;
+    color: white;
+    background-color: #2b8efc;
+}
 body{
     font-family: IRYekan, serif;
 }
