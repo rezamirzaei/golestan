@@ -35,7 +35,7 @@ public class UserService {
     @Transactional
     public boolean signUp(String name, String  family, String username, String  password, Date birthDay, String  fatherName, Long  nationalNumber, Long  postalCode, String  address) {
         String rule ="user";
-        User user =   new User( name,  family, username,  password,"admin" , birthDay,  fatherName,  nationalNumber,  postalCode,  address);
+        User user =   new User( name,  family, username,  password, rule , birthDay,  fatherName,  nationalNumber,  postalCode,  address);
         boolean valid = userDAO.validNewUser(username);
         if (valid) {
             userDAO.create(user);
@@ -60,5 +60,14 @@ public class UserService {
     @Transactional
     public User loadUser(){
       return (User)userDAO.load((String)httpSession.getAttribute("username"));
+    }
+
+    @Transactional
+    public void logout(){
+        httpSession.removeAttribute("username");
+        httpSession.removeAttribute("name");
+        httpSession.removeAttribute("family");
+        httpSession.removeAttribute("role");
+
     }
 }

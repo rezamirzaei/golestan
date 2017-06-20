@@ -40,10 +40,7 @@ public class UserController {
 
     @RequestMapping(value = "/logout")
     public String logout() {
-        httpSession.removeAttribute("username");
-        httpSession.removeAttribute("name");
-        httpSession.removeAttribute("family");
-        httpSession.removeAttribute("rule");
+        userService.logout();
         return "login";
     }
 
