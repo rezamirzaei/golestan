@@ -33,9 +33,6 @@ public class UserController {
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public String SignUp(@RequestParam("name") String name, @RequestParam("familyName") String family, @RequestParam("username") String username, @RequestParam("password") String password, @RequestParam("fatherName") String fatherName, @RequestParam("nationalNumber") Long nationalNumber, @RequestParam("postalCode") Long postalCode, @RequestParam("address") String address, Model model) {
         if (userService.signUp(name, family, username, password, new Date(), fatherName, nationalNumber, postalCode, address)) {
-            httpSession.setAttribute("usrename", username);
-            httpSession.setAttribute("family", family);
-            httpSession.setAttribute("name", name);
             return "home";
         }
         return "signup";

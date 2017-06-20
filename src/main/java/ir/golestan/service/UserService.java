@@ -26,6 +26,7 @@ public class UserService {
             System.out.println(user.getPassword());
             httpSession.setAttribute("username", user.getUsername());
             httpSession.setAttribute("name", user.getName());
+            httpSession.setAttribute("family",user.getFamily());
             httpSession.setAttribute("rule", user.getRole());
             return true;
         }
@@ -40,6 +41,7 @@ public class UserService {
             userDAO.create(user);
             httpSession.setAttribute("username", user.getUsername());
             httpSession.setAttribute("name", name);
+            httpSession.setAttribute("family",family);
             httpSession.setAttribute("rule", user.getRole());
             return true;
         }
