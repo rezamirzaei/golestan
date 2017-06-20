@@ -45,4 +45,8 @@ public class TermDAO {
     public Term getById(Long id){
        return sessionFactory.getCurrentSession().load(Term.class,id);
     }
+    public List<Term> loadAll(){
+        Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Term.class);
+        return criteria.list();
+    }
 }
