@@ -26,14 +26,24 @@ public class TermController {
     public String mainTerm(Model model){
         if(httpSession.getAttribute("username")!=null&&((String)httpSession.getAttribute("rule")).compareTo("admin")==0){
             List<Term> terms = termService.loadAll();
-            model.addAllAttributes(terms);
+            model.addAttribute("terms",terms);
             return "makeTerm";
         }
         return "home";
     }
     @RequestMapping(value = "/maketerm" ,method = RequestMethod.POST)
-    public String makeTerm(@RequestParam("name")String name,@RequestParam("code")Long code,@RequestParam("year")int year,@RequestParam("season")int season){
-       return null;
+    public String makeTerm(@RequestParam("name")String name,@RequestParam("code")Long code,@RequestParam("year")int year,@RequestParam("season")int season,Model model){
+        if(httpSession.getAttribute("username")!=null&&((String)httpSession.getAttribute("rule")).compareTo("admin")==0){
+           Term term = new Term();
+            term.setCode(code);
+            term.setSeason(season);
+            term.setYear(year);
+            termService.create(term);
+            List<Term> terms = termService.loadAll();
+            model.addAttribute("terms",terms);
+            return "makeTerm";
+        }
+        return "home";
     }
 
 }

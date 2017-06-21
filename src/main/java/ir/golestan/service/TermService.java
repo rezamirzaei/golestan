@@ -40,5 +40,9 @@ public class TermService {
     public void delete(Term term) {
         termDAO.delete(term);
     }
+    @Transactional
+    public void create(Term term){
+        termDAO.create(term);
+    }
 
 }
