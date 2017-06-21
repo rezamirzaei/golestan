@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" dir="rtl"  xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <title>course effort</title>
-    <link rel="stylesheet" type="text/css" href="Data/bootstrap/css/bootstrap-theme.min.css"/>
-    <link rel="stylesheet" type="text/css" href="Data/bootstrap/css/bootstrap.min.css"/>
-    <script src="Data/Jquery/jquery-3.2.0.min.js"></script>
-    <script src="Data/bootstrap/js/bootstrap.js"></script>
-    <link rel="stylesheet" type="text/css" href="CSS/PageStyle.css">
+    <link rel="stylesheet" type="text/css" href="/Data/bootstrap/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/Data/bootstrap/css/bootstrap.min.css"/>
+    <script src="/Data/Jquery/jquery-3.2.0.min.js"></script>
+    <script src="/Data/bootstrap/js/bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" href="/CSS/PageStyle.css"/>
 </head>
 <body>
 <nav class="navbar navbar-toggleable-md navbar-default bg-faded navigationBar">
@@ -57,17 +57,17 @@
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-offset-1 col-lg-10">
                             <table class="table table-bordered table-striped table-hover">
                                 <thead>
-                                <tr>
+                                <tr  th:each="term : ${terms}">
                                     <th class="col-xs-3 col-sm-3 col-md-3 col-lg-3">کد</th>
                                     <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">فصل</th>
                                     <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">سال</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>پاییز</td>
-                                    <td>1396</td>
+                                <tr  th:each="term : ${terms}">
+                                    <td th:text="${term.code}">1</td>
+                                    <td th:text="${term.season}">پاییز</td>
+                                    <td th:text="${term.year}">1396</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -87,15 +87,15 @@
                                     <div class="modal-body">
                                         <div class="form-group">
                                             <label class="control-label" for="year" style="font-size: 15px;color: black">سال:</label>
-                                            <input type="text" class="form-control" id="year" name="year">
+                                            <input type="text" class="form-control" id="year" name="year"/>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label" for="season" style="font-size: 15px;color: black">فصل:</label>
-                                            <input type="text" class="form-control" id="season" name="season">
+                                            <input type="text" class="form-control" id="season" name="season"/>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label" for="code" style="font-size: 15px;color: black">کد:</label>
-                                            <input type="text" class="form-control" id="code" name="Code">
+                                            <input type="text" class="form-control" id="code" name="Code"/>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
