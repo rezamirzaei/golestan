@@ -32,7 +32,7 @@ public class TermController {
         return "home";
     }
     @RequestMapping(value = "/maketerm" ,method = RequestMethod.POST)
-    public String makeTerm(@RequestParam("name")String name,@RequestParam("code")Long code,@RequestParam("year")int year,@RequestParam("season")int season,Model model){
+    public String makeTerm(@RequestParam("code")Long code,@RequestParam("year")int year,@RequestParam("season")int season,Model model){
         if(httpSession.getAttribute("username")!=null&&((String)httpSession.getAttribute("rule")).compareTo("admin")==0){
            Term term = new Term();
             term.setCode(code);
