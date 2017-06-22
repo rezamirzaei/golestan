@@ -57,7 +57,9 @@ public class UserController {
     }
 
     @RequestMapping(value = "/changeInfoPage", method = RequestMethod.GET)
-    public String changeInfo() {
+    public String changeInfo(Model model) {
+        if(httpSession.getAttribute("username")!=null)
+            model.addAttribute("user",userService.loadUser());
         return "changeInfo";
     }
 
