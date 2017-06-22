@@ -63,7 +63,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/changeInfoSave", method = RequestMethod.POST)
-    public String changeInfo(@RequestParam("name") String name, @RequestParam("familyName") String family, @RequestParam("oldPassword") String oldPassword, @RequestParam("newPassword") String newPassword, @RequestParam("fatherName") String fatherName, @RequestParam("nationalNumber") Long nationalNumber, @RequestParam("postalCode") Long postalCode, @RequestParam("address") String address, @RequestParam("birthDay") String birthDay, Model model) {
+    public String changeInfo(@RequestParam("name") String name, @RequestParam("familyName") String family, @RequestParam("oldPassword") String oldPassword, @RequestParam("newPassword") String newPassword, @RequestParam("fatherName") String fatherName , @RequestParam("nationalNumber") Long nationalNumber, @RequestParam("postalCode") Long postalCode, @RequestParam("address") String address, @RequestParam("birthDay") String birthDay, Model model) {
         if (httpSession.getAttribute("username") != null && userService.loginForSecurity((String) httpSession.getAttribute("username"), oldPassword) && userService.changeInfo(name, family, newPassword, birthDay, fatherName, nationalNumber, postalCode, address)) {
             return "home";
 
