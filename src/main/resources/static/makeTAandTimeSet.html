@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" dir="rtl"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>courseTimeSet</title>
+    <link rel="stylesheet" type="text/css" href="Data/bootstrap/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" type="text/css" href="Data/bootstrap/persianDatePicker/jquery.Bootstrap-PersianDateTimePicker.css"/>
+    <link rel="stylesheet" type="text/css" href="Data/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="Data/timePickerPlugin/css/timepicki.css"/>
+    <link rel="stylesheet" type="text/css" href="Data/icheckPlugin/flat/blue.css"/>
+    <script src="Data/Jquery/jquery-3.2.0.min.js"></script>
+    <script src="Data/bootstrap/js/bootstrap.js"></script>
+    <script src="Data/timePickerPlugin/js/timepicki.js"></script>
+    <script src="Data/bootstrap/persianDatePicker/jalaali.js"></script>
+    <script src="Data/bootstrap/persianDatePicker/jquery.Bootstrap-PersianDateTimePicker.js"></script>
+    <script src="Data/icheckPlugin/icheck.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="CSS/PageStyle.css">
+</head>
+<body>
+<nav class="navbar navbar-toggleable-md navbar-default bg-faded navigationBar">
+    <div class="container-fluid" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigationBar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand NavigationBarMenuText">سیستم جامع گلستان</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navigationBar">
+            <ul class="nav navbar-nav">
+                <li><a href="/" th:utext="${session.name + session.family}"></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/changeInfo" class="NavigationBarMenuText">دانشجو</a></li>
+                <li><a href="#" class="NavigationBarMenuText">آموزش</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-th"></span></a></li>
+                <li>
+                    <a href="#"><span class="glyphicon glyphicon-bell img-circle">
+                    </span><span class="label label-info">1</span></a>
+                </li>
+                <li><a href="#"><img src="Image/member-1.jpg" alt="UserImage" class="img-circle userImage"/></a></li>
+                <li><button id="Logout" type="button" class="btn ButtonNav" aria-haspopup="true">خروج</button></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        $("#Logout").on('click',function () {
+            window.location = '/logout';
+        })
+    </script>
+</nav>
+<div class="container-fluid">
+    <div class="containCourseEffortPage">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-offset-2 col-lg-8">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 courseEffort">
+                <div class="row">
+                    <div class="row">
+                        <div class="col-lg-offset-2 col-lg-8">
+                            <h1><strong>ایجاد ساعت</strong></h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-offset-1 col-lg-10">
+                            <table class="table table-bordered table-striped table-hover">
+                                <thead>
+                                <tr>
+                                    <th class="col-xs-3 col-sm-3 col-md-3 col-lg-3">کد</th>
+                                    <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2"> نوع</th>
+                                    <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">ساعت درس</th>
+                                    <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">روز های هفته</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>TA</td>
+                                    <td>10:00 - 12:30</td>
+                                    <td>شنبه - یکشنبه - چهارشنبه</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button class="btn ButtonNav" type="button" aria-haspopup="true" data-toggle="modal" data-target="#makeTermModal">ایجاد ساعت جدید</button>
+                    </div>
+                    <div id="makeTermModal" class="modal fade" role="dialog">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <form class="form-horizontal" action="" method="post">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">ایجاد ساعت</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2 rightToLeftّFloat titleFormDiv">
+                                                    <label class="control-label titleForm" for="Type" style="font-size: 15px;">نوع</label>
+                                                </div>
+                                                <div class="col-xs-7 col-sm-8 col-md-5 col-lg-5 rightToLeftّFloat ">
+                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                        <input type="text" id="Type" class="form-control RightToLeftDirection" name="Type"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <div class="col-xs-5 col-sm-4 col-md-6 col-lg-2 rightToLeftّFloat titleFormDiv">
+                                                    <label class="control-label titleForm" style="font-size: 15px;">روزهای درس</label>
+                                                </div>
+                                                <div class="col-xs-7 col-sm-6 col-md-6 col-lg-10 rightToLeftّFloat RightToLeftDirection">
+                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 btn btn-default checkbox-inline rightToLeftّFloat checkBoxForm">
+                                                        <label class="col-xs-10 col-sm-10 col-md-10 col-lg-10" for="DayOne" style="font-size: 15px;">شنبه</label>
+                                                        <input class="col-xs-2 col-sm-2 col-md-2 col-lg-2" id="DayOne" type="checkbox" name="day" value="dayOne">
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 btn btn-default checkbox-inline rightToLeftّFloat checkBoxForm">
+                                                        <label class="col-xs-10 col-sm-10 col-md-10 col-lg-10" for="DayTwo" style="font-size: 15px;">یکشنبه</label>
+                                                        <input  class="col-xs-2 col-sm-2 col-md-2 col-lg-2" id="DayTwo" type="checkbox" name="day" value="dayTwo">
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 btn btn-default checkbox-inline rightToLeftّFloat checkBoxForm">
+                                                        <label class="col-xs-10 col-sm-10 col-md-10 col-lg-10" for="DayThree" style="font-size: 15px;">دوشنبه</label>
+                                                        <input  class="col-xs-2 col-sm-2 col-md-2 col-lg-2" id="DayThree" type="checkbox" name="day" value="dayThree">
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 btn btn-default checkbox-inline rightToLeftّFloat checkBoxForm">
+                                                        <label class="col-xs-10 col-sm-10 col-md-10 col-lg-10" for="DayFour" style="padding-left: 0;padding-right: 13px; font-size: 15px">سه شنبه</label>
+                                                        <input  class="col-xs-2 col-sm-2 col-md-2 col-lg-2" id="DayFour" type="checkbox" name="day" value="dayFour">
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 btn btn-default checkbox-inline rightToLeftّFloat checkBoxForm">
+                                                        <label class="col-xs-10 col-sm-10 col-md-10 col-lg-10" for="DayFive" style="font-size: 15px;">چهارشنبه</label>
+                                                        <input  class="col-xs-2 col-sm-2 col-md-2 col-lg-2" id="DayFive" type="checkbox" name="day" value="dayFive">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2 rightToLeftّFloat titleFormDiv">
+                                                    <label class="control-label titleForm" for="courseTimePartOne" style="font-size: 15px;">ساعت درس</label>
+                                                </div>
+                                                <div class="col-xs-7 col-sm-8 col-md-5 col-lg-5 rightToLeftّFloat ">
+                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                                            <input type="text" id="courseTimePartOne" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-control" name="courseTimePartOne"/>
+                                                        </div>
+                                                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                                            <input type="text" id="courseTimePartTwo" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-control" name="courseTimePartTwo"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-success">ایجاد</button>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">انصراف</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2 col-md-2 col-lg-4 rightToLeftّFloat"></div>
+                        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-4 rightToLeftّFloat">
+                            <ul class="pagination">
+                                <li class="active"><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('#courseTimePartOne').timepicki({show_meridian:false,start_time: ["06", "00"],reset: true,min_hour_value:0,max_hour_value:23,custom_classes:"timePickerClass"});
+    $('#courseTimePartTwo').timepicki({show_meridian:false,start_time: ["06", "00"],reset: true,min_hour_value:0,max_hour_value:23,custom_classes:"timePickerClass"});
+    $(document).ready(function(){
+        $('input').iCheck({
+            checkboxClass: 'icheckbox_flat-blue',
+            radioClass: 'iradio_flat-blue'
+        });
+    });
+</script>
+</body>
+</html>
