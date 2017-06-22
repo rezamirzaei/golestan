@@ -50,10 +50,9 @@ public class UserService {
     }
 
     @Transactional
-    public boolean changeInfo(String name, String family, String oldPassword, String newPassword, String roles, String birthDay, String fatherName, Long nationalNumber, Long postalCode, String address) {
-        User user = userDAO.login((String) httpSession.getAttribute("username"), oldPassword);
-        if (user != null) {
-            user = new User(name, family, (String) httpSession.getAttribute("username"), newPassword, user.getRole(), birthDay, fatherName, nationalNumber, postalCode, address);
+    public boolean changeInfo(String name, String family, String oldPassword, String newPassword, String birthDay, String fatherName, Long nationalNumber, Long postalCode, String address) {
+        if (httpSession.getAttribute("username") != null) {
+            User user = new User(name, family, (String) httpSession.getAttribute("username"), newPassword, (String)httpSession.getAttribute("role"), birthDay, fatherName, nationalNumber, postalCode, address);
             userDAO.update(user);
             return true;
         }
