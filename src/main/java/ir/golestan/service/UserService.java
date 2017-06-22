@@ -50,18 +50,14 @@ public class UserService {
     }
 
     @Transactional
-    public boolean changeInfo(String name, String family,String oldPassword, String newPassword, String birthDay, String fatherName, Long nationalNumber, Long postalCode, String address) {
+    public boolean changeInfo(String name, String family, String newPassword, String birthDay, String fatherName, Long nationalNumber, Long postalCode, String address) {
         if (httpSession.getAttribute("username") != null) {
-            User lastUser = userDAO.getById((String) httpSession.getAttribute("username"));
-            if(lastUser.getPassword().compareTo(oldPassword) == 0){
                 User user = new User(name, family, (String) httpSession.getAttribute("username"), newPassword, (String)httpSession.getAttribute("role"), birthDay, fatherName, nationalNumber, postalCode, address);
                 userDAO.update(user);
                 return true;
             }
             else
                 return false;
-        }
-        return false;
     }
 
     @Transactional
