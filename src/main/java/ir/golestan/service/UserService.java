@@ -52,12 +52,11 @@ public class UserService {
     @Transactional
     public boolean changeInfo(String name, String family, String newPassword, String birthDay, String fatherName, Long nationalNumber, Long postalCode, String address) {
         if (httpSession.getAttribute("username") != null) {
-                User user = new User(name, family, (String) httpSession.getAttribute("username"), newPassword, (String)httpSession.getAttribute("role"), birthDay, fatherName, nationalNumber, postalCode, address);
-                userDAO.update(user);
-                return true;
-            }
-            else
-                return false;
+            User user = new User(name, family, (String) httpSession.getAttribute("username"), newPassword, (String) httpSession.getAttribute("role"), birthDay, fatherName, nationalNumber, postalCode, address);
+            userDAO.update(user);
+            return true;
+        } else
+            return false;
 
     }
 
@@ -74,10 +73,11 @@ public class UserService {
         httpSession.removeAttribute("role");
 
     }
+
     @Transactional
-    public boolean loginForSecurity(String username,String password){
-        User user =  userDAO.login(username,password);
-        if(user==null){
+    public boolean loginForSecurity(String username, String password) {
+        User user = userDAO.login(username, password);
+        if (user == null) {
             return false;
         }
         return true;
