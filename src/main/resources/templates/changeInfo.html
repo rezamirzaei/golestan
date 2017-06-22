@@ -21,9 +21,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand NavigationBarMenuText">سیستم جامع گلستان</a>
+            <a href="/" class="navbar-brand NavigationBarMenuText">سیستم جامع گلستان</a>
         </div>
         <div class="collapse navbar-collapse" id="navigationBar">
+            <ul class="nav navbar-nav">
+                <li><a href="/" th:utext="${session.name + ' ' + session.family}"></a></li>
+            </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#" class="NavigationBarMenuText">دانشجو</a></li>
                 <li><a href="#" class="NavigationBarMenuText">آموزش</a></li>
@@ -32,13 +35,19 @@
                     <a href="#"><span class="glyphicon glyphicon-bell img-circle">
                     </span><span class="label label-info">1</span></a>
                 </li>
-                <li><a href="#"><img src="Image/member-1.jpg" alt="UserImage" class="img-circle userImage"/></a></li>
+                <li><a href="#"><img src="/Image/member-1.jpg" alt="UserImage" class="img-circle userImage"/></a></li>
+                <li><button id="Logout" type="button" class="btn ButtonNav" aria-haspopup="true">خروج</button></li>
             </ul>
         </div>
     </div>
+    <script>
+        $("#Logout").on('click',function () {
+            window.location = '/logout';
+        })
+    </script>
 </nav>
 <div class="container personalInfo">
-    <form class=" col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-xs-12 col-sm-10 col-md-10 col-lg-8 col-lg-8 form-horizontal" action="/signup" method="post">
+    <form class=" col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-xs-12 col-sm-10 col-md-10 col-lg-8 col-lg-8 form-horizontal" action="/changeInfoSave" method="post">
         <h1 class="RightToLeftDirection"><strong>ثبت نام</strong></h1>
         <div class="row">
             <div class="form-group">
@@ -55,11 +64,23 @@
         <div class="row">
             <div class="form-group">
                 <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2 rightToLeftّFloat titleFormDiv">
-                    <label class="control-label titleForm" for="password">رمز</label>
+                    <label class="control-label titleForm" for="oldPassword">رمز قدیمی</label>
                 </div>
                 <div class="col-xs-7 col-sm-8 col-md-5 col-lg-5 rightToLeftّFloat ">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <input type="password" id="password" class="form-control RightToLeftDirection" name="password"/>
+                        <input type="password" id="oldPassword" class="form-control RightToLeftDirection" name="oldPassword"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2 rightToLeftّFloat titleFormDiv">
+                    <label class="control-label titleForm" for="newPassword">رمز جدید</label>
+                </div>
+                <div class="col-xs-7 col-sm-8 col-md-5 col-lg-5 rightToLeftّFloat ">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <input type="password" id="newPassword" class="form-control RightToLeftDirection" name="newPassword"/>
                     </div>
                 </div>
             </div>

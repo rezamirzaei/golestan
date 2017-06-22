@@ -22,10 +22,10 @@
         </div>
         <div class="collapse navbar-collapse" id="navigationBar">
             <ul class="nav navbar-nav">
-                <li><a href="/" th:utext="${session.name + session.family}"></a></li>
+                <li><a href="/" th:utext="${session.name + ' ' + session.family}"></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/changeInfo" class="NavigationBarMenuText">دانشجو</a></li>
+                <li><a href="#" class="NavigationBarMenuText">دانشجو</a></li>
                 <li><a href="#" class="NavigationBarMenuText">آموزش</a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-th"></span></a></li>
                 <li>
@@ -57,7 +57,7 @@
                 <a href="#" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 btn btn-secondary finance">امور دارایی</a>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                <a href="#" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 btn btn-secondary student">دانشجو</a>
+                <a href="/changeInfoPage" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 btn btn-secondary student">دانشجو</a>
             </div>
         </div>
 

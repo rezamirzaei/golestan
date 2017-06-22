@@ -34,7 +34,7 @@ public class UserService {
     }
 
     @Transactional
-    public boolean signUp(String name, String family, String username, String password, Date birthDay, String fatherName, Long nationalNumber, Long postalCode, String address) {
+    public boolean signUp(String name, String family, String username, String password, String birthDay, String fatherName, Long nationalNumber, Long postalCode, String address) {
         String rule = "user";
         User user = new User(name, family, username, password, rule, birthDay, fatherName, nationalNumber, postalCode, address);
         boolean valid = userDAO.validNewUser(username);
@@ -50,7 +50,7 @@ public class UserService {
     }
 
     @Transactional
-    public boolean changeInfo(String name, String family, String oldPassword, String newPassword, String roles, Date birthDay, String fatherName, Long nationalNumber, Long postalCode, String address) {
+    public boolean changeInfo(String name, String family, String username, String oldPassword, String newPassword, String roles, String birthDay, String fatherName, Long nationalNumber, Long postalCode, String address) {
         User user = userDAO.login((String) httpSession.getAttribute("username"), oldPassword);
         if (user != null) {
             user = new User(name, family, (String) httpSession.getAttribute("username"), newPassword, user.getRole(), birthDay, fatherName, nationalNumber, postalCode, address);

@@ -24,7 +24,7 @@ public class User {
     @Column
     String roles;
     @Column
-    Date birthDay;
+    String birthDay;
     @Column
     String fatherName;
     @Column
@@ -38,7 +38,7 @@ public class User {
 
     }
 
-    public User(String name, String family, String username, String password, String roles, Date birthDay, String fatherName, Long nationalNumber, Long postalCode, String address) {
+    public User(String name, String family, String username, String password, String roles, String birthDay, String fatherName, Long nationalNumber, Long postalCode, String address) {
         this.name = name;
         this.family = family;
         this.username = username;
@@ -92,11 +92,11 @@ public class User {
         this.roles = roles;
     }
 
-    public Date getBirthDay() {
+    public String getBirthDay() {
         return birthDay;
     }
 
-    public void setBirthDay(Date birthDay) {
+    public void setBirthDay(String birthDay) {
         this.birthDay = birthDay;
     }
 

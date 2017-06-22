@@ -30,8 +30,8 @@ public class UserController {
     }
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
-    public String SignUp(@RequestParam("name") String name, @RequestParam("familyName") String family, @RequestParam("username") String username, @RequestParam("password") String password, @RequestParam("fatherName") String fatherName, @RequestParam("nationalNumber") Long nationalNumber, @RequestParam("postalCode") Long postalCode, @RequestParam("address") String address, Model model) {
-        if (userService.signUp(name, family, username, password, new Date(), fatherName, nationalNumber, postalCode, address)) {
+    public String SignUp(@RequestParam("name") String name, @RequestParam("familyName") String family, @RequestParam("username") String username, @RequestParam("password") String password, @RequestParam("fatherName") String fatherName, @RequestParam("nationalNumber") Long nationalNumber, @RequestParam("postalCode") Long postalCode, @RequestParam("address") String address, @RequestParam("birthDay") String birthDay, Model model) {
+        if (userService.signUp(name, family, username, password, birthDay, fatherName, nationalNumber, postalCode, address)) {
             return "home";
         }
         return "signup";
@@ -56,14 +56,15 @@ public class UserController {
         return "login";
     }
 
-    @RequestMapping(value = "/changeInfo", method = RequestMethod.GET)
+    @RequestMapping(value = "/changeInfoPage", method = RequestMethod.GET)
     public String changeInfo() {
         return "changeInfo";
     }
 
-    @RequestMapping(value = "/changeInfo", method = RequestMethod.POST)
-    public String changeInfo(@RequestParam("name") String name, @RequestParam("familyName") String family, @RequestParam("username") String username, @RequestParam("oldPassword") String oldPassword, @RequestParam("newPassword") String newPassword, @RequestParam("fatherName") String fatherName, @RequestParam("nationalNumber") Long nationalNumber, @RequestParam("postalCode") Long postalCode, @RequestParam("address") String address, Model model) {
-        if (userService.changeInfo(name, family, username, oldPassword, newPassword, new Date(), fatherName, nationalNumber, postalCode, address)) {
+    @RequestMapping(value = "/changeInfoSave", method = RequestMethod.POST)
+    public String changeInfo(@RequestParam("name") String name, @RequestParam("familyName") String family, @RequestParam("username") String username, @RequestParam("oldPassword") String oldPassword, @RequestParam("newPassword") String newPassword, @RequestParam("fatherName") String fatherName, @RequestParam("nationalNumber") Long nationalNumber, @RequestParam("postalCode") Long postalCode, @RequestParam("address") String address, @RequestParam("birthDay") String birthDay, Model model) {
+        String role = "";
+        if (userService.changeInfo(name, family, username, oldPassword, newPassword, role, birthDay, fatherName, nationalNumber, postalCode, address)) {
             return "home";
         }
         return "changeInfo";
