@@ -80,7 +80,7 @@
                 </div>
                 <div class="col-xs-7 col-sm-8 col-md-5 col-lg-5 rightToLeftّFloat ">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <input type="text" id="name" class="form-control RightToLeftDirection" name="name" th:value="${user.name}"/>
+                        <input type="text" id="name" class="form-control RightToLeftDirection" name="name" th:text="${user.name}"/>
                     </div>
                 </div>
             </div>
@@ -92,7 +92,7 @@
                 </div>
                 <div class="col-xs-7 col-sm-8 col-md-5 col-lg-5 rightToLeftّFloat ">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <input type="text" id="familyName" class="form-control RightToLeftDirection" name="familyName" th:value="${user.family}"/>
+                        <input type="text" id="familyName" class="form-control RightToLeftDirection" name="familyName" th:text="${user.family}"/>
                     </div>
                 </div>
             </div>
@@ -104,7 +104,7 @@
                 </div>
                 <div class="col-xs-7 col-sm-8 col-md-5 col-lg-5 rightToLeftّFloat ">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <input type="text" id="fatherName" class="form-control RightToLeftDirection" name="fatherName"  th:value="${user.fatherName}"/>
+                        <input type="text" id="fatherName" class="form-control RightToLeftDirection" name="fatherName"  th:text="${user.fatherName}"/>
                     </div>
                 </div>
             </div>
@@ -117,7 +117,7 @@
                 <div class="col-xs-7 col-sm-8 col-md-5 col-lg-5 rightToLeftّFloat ">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <div class="input-group">
-                            <input type="text" id="birthDay" class="form-control" placeholder="" data-mddatetimepicker="true" data-trigger="click" data-targetselector="#birthDay" data-groupid="group1" data-todate="true" data-enabletimepicker="false" data-placement="bottom" name="birthDay"  th:value="${user.birthDay}"/>
+                            <input type="text" id="birthDay" class="form-control" placeholder="" data-mddatetimepicker="true" data-trigger="click" data-targetselector="#birthDay" data-groupid="group1" data-todate="true" data-enabletimepicker="false" data-placement="bottom" name="birthDay"  th:text="${user.birthDay}"/>
                             <div class="input-group-btn" data-mddatetimepicker="true" data-trigger="click" data-targetselector="#birthDay" data-groupid="group1" data-todate="true" data-enabletimepicker="false" data-placement="bottom">
                                 <button class="btn btn-default" type="button">
                                     <i class="glyphicon glyphicon-calendar"></i>
@@ -135,7 +135,7 @@
                 </div>
                 <div class="col-xs-7 col-sm-8 col-md-5 col-lg-5 rightToLeftّFloat ">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <input type="text" id="nationalNumber" class="form-control" name="nationalNumber"  th:value="${user.nationalNumber}"/>
+                        <input type="text" id="nationalNumber" class="form-control" name="nationalNumber"  th:text="${user.nationalNumber}"/>
                     </div>
                 </div>
             </div>
@@ -155,11 +155,11 @@
         <div class="row">
             <div class="form-group">
                 <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2 rightToLeftّFloat titleFormDiv">
-                    <label class="control-label titleForm" for="postalCode"  th:value="${user.postalCode}">کد پستی</label>
+                    <label class="control-label titleForm" for="postalCode"  ">کد پستی</label>
                 </div>
                 <div class="col-xs-7 col-sm-8 col-md-5 col-lg-5 rightToLeftّFloat ">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <input type="text" id="postalCode" class="form-control" name="postalCode"/>
+                        <input type="text" id="postalCode" class="form-control" name="postalCode" th:text="${user.postalCode}/>
                     </div>
                 </div>
             </div>
