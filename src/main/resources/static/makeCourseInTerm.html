@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Make course in term</title>
+    <link rel="stylesheet" type="text/css" href="Data/bootstrap/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" type="text/css" href="Data/bootstrap/persianDatePicker/jquery.Bootstrap-PersianDateTimePicker.css"/>
+    <link rel="stylesheet" type="text/css" href="Data/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="Data/timePickerPlugin/css/timepicki.css"/>
+    <link rel="stylesheet" type="text/css" href="Data/icheckPlugin/flat/blue.css"/>
+    <script src="Data/Jquery/jquery-3.2.0.min.js"></script>
+    <script src="Data/bootstrap/js/bootstrap.js"></script>
+    <script src="Data/timePickerPlugin/js/timepicki.js"></script>
+    <script src="Data/bootstrap/persianDatePicker/jalaali.js"></script>
+    <script src="Data/bootstrap/persianDatePicker/jquery.Bootstrap-PersianDateTimePicker.js"></script>
+    <script src="Data/icheckPlugin/icheck.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="CSS/PageStyle.css">
+</head>
+<body>
+<nav class="navbar navbar-toggleable-md navbar-default bg-faded navigationBar">
+    <div class="container-fluid" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigationBar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand NavigationBarMenuText"><strong>سیستم جامع گلستان</strong></a>
+        </div>
+        <div class="collapse navbar-collapse" id="navigationBar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#" class="NavigationBarMenuText"><strong>دانشجو</strong> </a></li>
+                <li><a href="#" class="NavigationBarMenuText"><strong>آموزش</strong> </a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-th"></span></a></li>
+                <li>
+                    <a href="#"><span class="glyphicon glyphicon-bell img-circle">
+                    </span><span class="label label-info">1</span></a>
+                </li>
+                <li><a href="#"><img src="Image/member-1.jpg" alt="UserImage" class="img-circle userImage"/></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="containCourseEffortPage">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-offset-2 col-lg-8">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 courseEffort">
+                <div class="row">
+                    <div class="row">
+                        <div class="col-lg-offset-2 col-lg-8">
+                            <h1><strong>ایجاد درس</strong></h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-offset-1 col-lg-10">
+                            <table class="table table-bordered table-striped table-hover">
+                                <thead>
+                                <tr>
+                                    <th class="col-xs-3 col-sm-3 col-md-3 col-lg-3">کد</th>
+                                    <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">نام درس</th>
+                                    <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">نام استاد درس</th>
+                                    <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">تاریخ امتحان</th>
+                                    <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">ایجاد ساعت TA و امتحان</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>ریاضی</td>
+                                    <td>علی</td>
+                                    <td>1.3.1396</td>
+                                    <td><a href="">ایجاد ساعت امتحان و TA</a></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button class="btn ButtonNav" type="button" aria-haspopup="true" data-toggle="modal" data-target="#makeTermModal">ایجاد درس جدید</button>
+                    </div>
+                    <div id="makeTermModal" class="modal fade" role="dialog">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <form class="form-horizontal" action="" method="post">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">ایجاد درس</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2 rightToLeftّFloat titleFormDiv">
+                                                    <label class="control-label titleForm" for="courseCodePartOne">کد درس</label>
+                                                </div>
+                                                <div class="col-xs-7 col-sm-8 col-md-5 col-lg-5 rightToLeftّFloat ">
+                                                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                                        <input type="text" id="courseCodePartOne" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-control" name="courseCodePartOne"/>
+                                                    </div>
+                                                    <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+                                                        <label for="courseCodePartTwo"></label>
+                                                        <input type="text" id="courseCodePartTwo" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-control" name="courseCodePartTwo"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2 rightToLeftّFloat titleFormDiv">
+                                                    <label class="control-label titleForm" for="courseName">نام درس</label>
+                                                </div>
+                                                <div class="col-xs-7 col-sm-8 col-md-5 col-lg-5 rightToLeftّFloat ">
+                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                        <input type="text" id="courseName" class="form-control RightToLeftDirection" name="courseName"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2 rightToLeftّFloat titleFormDiv">
+                                                    <label class="control-label titleForm" for="teacherName">استاد درس</label>
+                                                </div>
+                                                <div class="col-xs-7 col-sm-8 col-md-5 col-lg-5 rightToLeftّFloat ">
+                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                        <input type="text" id="teacherName" class="form-control RightToLeftDirection" name="teacherName"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2 rightToLeftّFloat titleFormDiv">
+                                                    <label class="control-label titleForm" for="courseExamDate">تاریخ امتحان</label>
+                                                </div>
+                                                <div class="col-xs-7 col-sm-8 col-md-5 col-lg-5 rightToLeftّFloat ">
+                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                        <div class="input-group">
+                                                            <input type="text" id="courseExamDate" class="form-control" placeholder="" data-mddatetimepicker="true" data-trigger="click" data-targetselector="#courseExamDate" data-groupid="group1" data-todate="true" data-enabletimepicker="true" data-placement="bottom" name="courseExamDate"/>
+                                                            <div class="input-group-btn" data-mddatetimepicker="true" data-trigger="click" data-targetselector="#courseExamDate" data-groupid="group1" data-todate="true" data-enabletimepicker="true" data-placement="bottom">
+                                                                <button class="btn btn-default" type="button">
+                                                                    <i class="glyphicon glyphicon-calendar"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-success">ایجاد</button>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">انصراف</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2 col-md-2 col-lg-4 rightToLeftّFloat"></div>
+                        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-4 rightToLeftّFloat">
+                            <ul class="pagination">
+                                <li class="active"><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
