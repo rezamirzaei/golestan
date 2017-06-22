@@ -14,7 +14,7 @@ public class Term {
     @Column
     int year;
     @Column
-    int season;
+    String season;
     @Column(unique = true)
     Long Code;
 
@@ -22,7 +22,7 @@ public class Term {
 
     }
 
-    public Term(int year, int season, Long code) {
+    public Term(int year, String season, Long code) {
         this.year = year;
         this.season = season;
         Code = code;
@@ -44,11 +44,11 @@ public class Term {
         this.year = year;
     }
 
-    public int getSeason() {
+    public String getSeason() {
         return season;
     }
 
-    public void setSeason(int season) {
+    public void setSeason(String season) {
         this.season = season;
     }
 
