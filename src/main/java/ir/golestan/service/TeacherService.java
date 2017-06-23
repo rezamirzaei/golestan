@@ -99,4 +99,13 @@ public class TeacherService {
             course.setScore(studentUsername,score);
         }
     }
+    @Transactional
+    public List<Score> loadStudentScore(String username,Long courseCode){
+        List<Course> courses = loadCourses(username);
+        Course course = courseService.load(courseCode);
+        if(courses.contains(course)){
+            return course.getStudentScore();
+        }
+        return null;
+    }
 }

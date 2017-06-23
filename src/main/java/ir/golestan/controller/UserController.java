@@ -102,14 +102,14 @@ public class UserController {
         return "login";
     }
 
-    @RequestMapping(value = "/changeInfo", method = RequestMethod.GET)
+    @RequestMapping(value = "/changeInfoPage", method = RequestMethod.GET)
     public String changeInfo(Model model) {
         if (httpSession.getAttribute("username") != null)
             model.addAttribute("user", userService.loadUser());
         return "changeInfo";
     }
 
-    @RequestMapping(value = "/changeInfo", method = RequestMethod.POST)
+    @RequestMapping(value = "/changeInfoSave", method = RequestMethod.POST)
     public String changeInfo(@RequestParam("name") String name, @RequestParam("familyName") String family, @RequestParam("oldPassword") String oldPassword, @RequestParam("newPassword") String newPassword, @RequestParam("fatherName") String fatherName, @RequestParam("nationalNumber") Long nationalNumber, @RequestParam("postalCode") Long postalCode, @RequestParam("address") String address, @RequestParam("birthDay") String birthDay, Model model) {
         if (httpSession.getAttribute("username") != null && userService.loginForSecurity((String) httpSession.getAttribute("username"), oldPassword) && userService.changeInfo(name, family, newPassword, birthDay, fatherName, nationalNumber, postalCode, address,(String) httpSession.getAttribute("role"))) {
             return "home";

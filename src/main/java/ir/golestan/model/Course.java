@@ -27,7 +27,7 @@ public class Course {
     @Column
     String status;
 
-    @OneToMany
+    @OneToMany(mappedBy = "course")
     List<Score> studentScore;
     @ManyToMany
     List<User> students;
