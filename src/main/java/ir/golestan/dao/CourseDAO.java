@@ -1,6 +1,7 @@
 package ir.golestan.dao;
 
 import ir.golestan.model.Course;
+import ir.golestan.model.Term;
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
@@ -45,5 +46,15 @@ public class CourseDAO {
 
     public void update(Course course) {
         sessionFactory.getCurrentSession().update(course);
+    }
+
+    public Course load(Long code) {
+        Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Course.class);
+        criteria.add(Restrictions.eq("code", code));
+        List<Course> list = criteria.list();
+        if (list == null || list.size() == 0) {
+            return null;
+        }
+        return list.get(0);
     }
 }

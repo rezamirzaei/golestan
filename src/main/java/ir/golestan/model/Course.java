@@ -30,7 +30,7 @@ public class Course {
     @OneToMany
     List<Score> studentScore;
     @ManyToMany
-    List<Student> students;
+    List<User> students;
 
     @OneToMany
     List<CourseTimeInweak> presentationTime;
@@ -64,7 +64,7 @@ public class Course {
         this.type = type;
         this.group = group;
         this.status = "not announced";
-        this.students = new ArrayList<Student>();
+        this.students = new ArrayList<User>();
         this.studentScore = new ArrayList<Score>();
         this.capacity = 30;
     }
@@ -173,15 +173,15 @@ public class Course {
         this.status = status;
     }
 
-    public List<Student> getStudents() {
+    public List<User> getStudents() {
         return students;
     }
 
-    public void setStudents(List<Student> students) {
+    public void setStudents(List<User> students) {
         this.students = students;
     }
 
-    public boolean addStudent(Student student)
+    public boolean addStudent(User student)
     {   if(capacity>=students.size()){
         this.students.add(student);
         this.studentScore.add(new Score(student.getUsername(),0));

@@ -39,6 +39,14 @@ public class CourseService {
         Course course = new Course(code, term, teacher, presentationTime, TATime, name, examTime, prerequisiteCourses, type, group);
         courseDAO.create(course);
     }
+    @Transactional
+    public List<User> loadUser(Long code){
+       Course course = courseDAO.load(code);
+        return course.getStudents();
+    }
+
+
+
 
 
 }
