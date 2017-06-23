@@ -1,8 +1,7 @@
 package ir.golestan.model;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by Reza-PC on 5/28/2017.
@@ -19,8 +18,19 @@ public class Course {
     @ManyToOne
     Term term;
 
+    @Column
+    int capacity;
+
     @ManyToOne
-    User teacher;
+    Teacher teacher;
+
+    @Column
+    String status;
+
+    @OneToMany
+    List<Score> studentScore;
+    @ManyToMany
+    List<Student> students;
 
     @OneToMany
     List<CourseTimeInweak> presentationTime;
@@ -42,7 +52,7 @@ public class Course {
 
     }
 
-    public Course(Long code, Term term, User teacher, List<CourseTimeInweak> presentationTime, List<CourseTimeInweak> TATime, String name, Date examTime, List<Course> prerequisiteCourses, int type, int group) {
+    public Course(Long code, Term term, Teacher teacher, List<CourseTimeInweak> presentationTime, List<CourseTimeInweak> TATime, String name, Date examTime, List<Course> prerequisiteCourses, int type, int group) {
         Code = code;
         this.term = term;
         this.teacher = teacher;
@@ -53,6 +63,10 @@ public class Course {
         this.prerequisiteCourses = prerequisiteCourses;
         this.type = type;
         this.group = group;
+        this.status = "not announced";
+        this.students = new ArrayList<Student>();
+        this.studentScore = new ArrayList<Score>();
+        this.capacity = 30;
     }
 
     public Long getId() {
@@ -79,11 +93,11 @@ public class Course {
         this.term = term;
     }
 
-    public User getTeacher() {
+    public Teacher getTeacher() {
         return teacher;
     }
 
-    public void setTeacher(User teacher) {
+    public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
     }
 
@@ -150,5 +164,73 @@ public class Course {
     public void addTATime(CourseTimeInweak courseTimeInweak) {
         this.TATime.add(courseTimeInweak);
     }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public List<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(List<Student> students) {
+        this.students = students;
+    }
+
+    public boolean addStudent(Student student)
+    {   if(capacity>=students.size()){
+        this.students.add(student);
+        this.studentScore.add(new Score(student.getUsername(),0));
+        return true;
+        }
+        return false;
+    }
+    public void deleteStudent(Student student){
+        this.students.remove(student);
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setScore(String username,int score){
+        for(int i =0;i<studentScore.size();i++){
+           Score sScore = studentScore.get(i);
+            if(sScore.getUsername()==username){
+                studentScore.remove(i);
+                sScore.setScore(score);
+                studentScore.add(sScore);
+                return;
+            }
+        }
+    }
+
+
+    public int getScore(String username){
+        for(int i =0;i<studentScore.size();i++){
+            Score sScore = studentScore.get(i);
+            if(sScore.getUsername()==username){
+                return sScore.getScore();
+            }
+        }
+        return 0;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
+    public List<Score> getStudentScore() {
+        return studentScore;
+    }
+
+    public void setStudentScore(List<Score> studentScore) {
+        this.studentScore = studentScore;
+    }
+
 }
 

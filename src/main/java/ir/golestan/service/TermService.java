@@ -2,6 +2,7 @@ package ir.golestan.service;
 
 import ir.golestan.dao.TermDAO;
 import ir.golestan.model.Term;
+import ir.golestan.model.ThisTerm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,7 +15,8 @@ import java.util.List;
  */
 @Service
 public class TermService {
-
+    @Autowired
+    ThisTerm thisTerm;
     @Autowired
     HttpSession httpSession;
     @Autowired
@@ -43,6 +45,7 @@ public class TermService {
     @Transactional
     public void create(Term term){
         termDAO.create(term);
+        thisTerm.setTerm(term);
     }
 
 }
