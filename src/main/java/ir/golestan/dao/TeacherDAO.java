@@ -3,6 +3,7 @@ package ir.golestan.dao;
 import ir.golestan.model.Teacher;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class TeacherDAO {
     @Autowired
+    @Qualifier("sessionFactory")
     SessionFactory sessionFactory;
     public void create(Teacher teacher){
         sessionFactory.getCurrentSession().save(teacher);

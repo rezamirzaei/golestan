@@ -1,10 +1,9 @@
 package ir.golestan.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Reza-PC on 5/28/2017.
@@ -33,6 +32,8 @@ public class User {
     Long postalCode;
     @Column
     String address;
+    @ManyToMany(mappedBy = "students")
+    List<Course> courses;
 
     public User() {
 
@@ -49,6 +50,7 @@ public class User {
         this.nationalNumber = nationalNumber;
         this.postalCode = postalCode;
         this.address = address;
+        this.courses = new ArrayList<Course>();
     }
 
 
@@ -130,6 +132,14 @@ public class User {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public List<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(List<Course> courses) {
+        this.courses = courses;
     }
 }
 

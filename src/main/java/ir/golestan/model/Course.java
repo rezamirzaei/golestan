@@ -189,7 +189,7 @@ public class Course {
         }
         return false;
     }
-    public void deleteStudent(Student student){
+    public void deleteStudent(User student){
         this.students.remove(student);
     }
 
