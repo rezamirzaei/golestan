@@ -65,4 +65,8 @@ public class UserDAO {
         return true;
     }
 
+    public List<User> loadAll() {
+        Criteria criteria = sessionFactory.getCurrentSession().createCriteria(User.class);
+        return criteria.list();
+    }
 }

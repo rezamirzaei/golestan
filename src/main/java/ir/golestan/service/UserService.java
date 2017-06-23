@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpSession;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Reza-PC on 5/28/2017.
@@ -24,6 +25,19 @@ public class UserService {
         User user = userDAO.getById(username);
         if (user != null && user.getPassword().compareTo(password) == 0) {
             System.out.println(user.getPassword());
+            httpSession.setAttribute("username", user.getUsername());
+            httpSession.setAttribute("name", user.getName());
+            httpSession.setAttribute("family", user.getFamily());
+            httpSession.setAttribute("rule", user.getRole());
+            return true;
+        }
+        return false;
+    }
+
+    @Transactional
+    public boolean adminLogin(String username, String password){
+        User user = userDAO.getById(username);
+        if (user != null && user.getPassword().compareTo(password) == 0 && user.getRole().compareTo("admin") == 0){
             httpSession.setAttribute("username", user.getUsername());
             httpSession.setAttribute("name", user.getName());
             httpSession.setAttribute("family", user.getFamily());
@@ -84,4 +98,7 @@ public class UserService {
 
     }
 
+    public List<User> loadAll() {
+        return userDAO.loadAll();
+    }
 }

@@ -34,7 +34,7 @@ public class TermController {
     @RequestMapping(value = "/maketerm" ,method = RequestMethod.POST)
     public String makeTerm(@RequestParam("code")int code,@RequestParam("year")int year,@RequestParam("season")String season,Model model){
         if(httpSession.getAttribute("username")!=null&&((String)httpSession.getAttribute("rule")).compareTo("admin")==0){
-           Term term = new Term();
+            Term term = new Term();
             term.setCode((long) code);
             term.setSeason(season);
             term.setYear(year);
