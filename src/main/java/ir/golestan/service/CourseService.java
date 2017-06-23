@@ -33,6 +33,9 @@ public class CourseService {
         course.setId(id);
         courseDAO.update(course);
     }
+    public void update(Course course){
+        courseDAO.update(course);
+    }
 
     @Transactional
     public void create(Long code, Term term, Teacher teacher, List<CourseTimeInweak> presentationTime, List<CourseTimeInweak> TATime, String name, Date examTime, List<Course> prerequisiteCourses, int type, int group) {
