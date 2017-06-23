@@ -59,4 +59,5 @@ public class Term {
     public void setCode(Long code) {
         Code = code;
     }
+
 }

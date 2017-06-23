@@ -42,6 +42,14 @@ public class CourseService {
     @Transactional
     public List<User> loadUser(Long code){
        Course course = courseDAO.load(code);
+        return loadUser(course);
+    }
+    @Transactional
+    public Course load(Long code){
+       return courseDAO.load(code);
+    }
+    @Transactional
+    public List<User> loadUser(Course course){
         return course.getStudents();
     }
 
