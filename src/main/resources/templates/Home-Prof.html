@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" dir="rtl"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>home</title>
+    <link rel="stylesheet" type="text/css" href="/Data/bootstrap/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/Data/bootstrap/css/bootstrap.min.css"/>
+    <script src="/Data/Jquery/jquery-3.2.0.min.js"></script>
+    <script src="/Data/bootstrap/js/bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" href="/CSS/PageStyle.css"/>
+</head>
+<body>
+<nav class="navbar navbar-toggleable-md navbar-default bg-faded navigationBar">
+    <div class="container-fluid" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigationBar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand NavigationBarMenuText">سیستم جامع گلستان</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navigationBar">
+            <ul class="nav navbar-nav">
+                <li><a href="/" th:utext="${session.name + session.family}"></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/changeInfo" class="NavigationBarMenuText">دانشجو</a></li>
+                <li><a href="#" class="NavigationBarMenuText">آموزش</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-th"></span></a></li>
+                <li>
+                    <a href="#"><span class="glyphicon glyphicon-bell img-circle">
+                    </span><span class="label label-info">1</span></a>
+                </li>
+                <li><a href="#"><img src="/Image/member-1.jpg" alt="UserImage" class="img-circle userImage"/></a></li>
+                <li><button id="Logout" type="button" class="btn ButtonNav" aria-haspopup="true">خروج</button></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        $("#Logout").on('click',function () {
+            window.location = '/logout';
+        })
+    </script>
+</nav>
+<div class="container homePageContainer">
+    <div class="row">
+        <div class=" col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <a href="#" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 btn btn-secondary education">مشاهده لیست دانشجویان</a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class=" col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <a href="#" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 btn btn-secondary finance">ارائه درس</a>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <a href="#" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 btn btn-secondary student">دروس جاری</a>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class=" col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <a href="#" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 btn btn-secondary education">نمره دهی دروس</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
