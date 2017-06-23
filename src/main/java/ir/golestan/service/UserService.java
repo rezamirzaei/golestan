@@ -28,45 +28,33 @@ public class UserService {
             httpSession.setAttribute("username", user.getUsername());
             httpSession.setAttribute("name", user.getName());
             httpSession.setAttribute("family", user.getFamily());
-            httpSession.setAttribute("rule", user.getRole());
+            httpSession.setAttribute("role", user.getRole());
             return true;
         }
         return false;
     }
 
     @Transactional
-    public boolean adminLogin(String username, String password){
-        User user = userDAO.getById(username);
-        if (user != null && user.getPassword().compareTo(password) == 0 && user.getRole().compareTo("admin") == 0){
-            httpSession.setAttribute("username", user.getUsername());
-            httpSession.setAttribute("name", user.getName());
-            httpSession.setAttribute("family", user.getFamily());
-            httpSession.setAttribute("rule", user.getRole());
-            return true;
-        }
-        return false;
-    }
-
-    @Transactional
-    public boolean signUp(String name, String family, String username, String password, String birthDay, String fatherName, Long nationalNumber, Long postalCode, String address) {
-        String rule = "user";
-        User user = new User(name, family, username, password, rule, birthDay, fatherName, nationalNumber, postalCode, address);
+    public boolean signUp(String role ,String name, String family, String username, String password, String birthDay, String fatherName, Long nationalNumber, Long postalCode, String address ,boolean inAdmin) {
+        User user = new User(name, family, username, password, role, birthDay, fatherName, nationalNumber, postalCode, address);
         boolean valid = userDAO.validNewUser(username);
         if (valid) {
             userDAO.create(user);
-            httpSession.setAttribute("username", user.getUsername());
-            httpSession.setAttribute("name", name);
-            httpSession.setAttribute("family", family);
-            httpSession.setAttribute("rule", user.getRole());
+            if (!inAdmin){
+                httpSession.setAttribute("username", user.getUsername());
+                httpSession.setAttribute("name", name);
+                httpSession.setAttribute("family", family);
+                httpSession.setAttribute("role", user.getRole());
+            }
             return true;
         }
         return false;
     }
 
     @Transactional
-    public boolean changeInfo(String name, String family, String newPassword, String birthDay, String fatherName, Long nationalNumber, Long postalCode, String address) {
+    public boolean changeInfo(String name, String family, String newPassword, String birthDay, String fatherName, Long nationalNumber, Long postalCode, String address, String role) {
         if (httpSession.getAttribute("username") != null) {
-            User user = new User(name, family, (String) httpSession.getAttribute("username"), newPassword, (String) httpSession.getAttribute("role"), birthDay, fatherName, nationalNumber, postalCode, address);
+            User user = new User(name, family, (String) httpSession.getAttribute("username"), newPassword, role, birthDay, fatherName, nationalNumber, postalCode, address);
             userDAO.update(user);
             return true;
         } else
@@ -98,6 +86,7 @@ public class UserService {
 
     }
 
+    @Transactional
     public List<User> loadAll() {
         return userDAO.loadAll();
     }
