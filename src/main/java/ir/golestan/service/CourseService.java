@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -21,7 +20,8 @@ public class CourseService {
     CourseDAO courseDAO;
     @Autowired
     TermService termService;
-
+    @Autowired
+    TeacherService teacherService;
     @Transactional
     public Course loadById(Long id) {
         return courseDAO.getById(id);
@@ -33,7 +33,7 @@ public class CourseService {
     }
 
     @Transactional
-    public void update(Long id, Long code, Term term, Teacher teacher, List<CourseTimeInweak> presentationTime, List<CourseTimeInweak> TATime, String name, Date examTime, List<Course> prerequisiteCourses, int type, int group) {
+    public void update(Long id, Long code, Term term, Teacher teacher, List<CourseTimeInweak> presentationTime, List<CourseTimeInweak> TATime, String name, String examTime, List<Course> prerequisiteCourses, int type, int group) {
         Course course = new Course(code, term, teacher, presentationTime, TATime, name, examTime, prerequisiteCourses, type, group);
         course.setId(id);
         courseDAO.update(course);
@@ -43,8 +43,10 @@ public class CourseService {
     }
 
     @Transactional
-    public void create(Long code, Term term, Teacher teacher, List<CourseTimeInweak> presentationTime, List<CourseTimeInweak> TATime, String name, Date examTime, List<Course> prerequisiteCourses, int type, int group) {
-        Course course = new Course(code, term, teacher, presentationTime, TATime, name, examTime, prerequisiteCourses, type, group);
+    public void create(Long code, Long termCode, String teacherUsername , String name, String examTime, int type, int group) {
+        Term term = termService.load(termCode);
+        Teacher teacher = teacherService.load(teacherUsername);
+        Course course = new Course(code, term, teacher, name, examTime, type, group);
         courseDAO.create(course);
     }
     @Transactional

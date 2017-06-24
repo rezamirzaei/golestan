@@ -40,7 +40,7 @@ public class Course {
     @Column
     String name;
     @Column
-    Date examTime;
+    String examTime;
     @ManyToMany
     List<Course> prerequisiteCourses;
     @Column
@@ -52,7 +52,24 @@ public class Course {
 
     }
 
-    public Course(Long code, Term term, Teacher teacher, List<CourseTimeInweak> presentationTime, List<CourseTimeInweak> TATime, String name, Date examTime, List<Course> prerequisiteCourses, int type, int group) {
+    public Course(Long code, Term term, Teacher teacher, String name, String examTime, int type, int group) {
+        Code = code;
+        this.term = term;
+        this.capacity = capacity;
+        this.teacher = teacher;
+        this.name = name;
+        this.examTime = examTime;
+        this.type = type;
+        this.group = group;
+        this.presentationTime = new ArrayList<CourseTimeInweak>();
+        this.TATime =  new ArrayList<CourseTimeInweak>();
+        this.status = "not announced";
+        this.students = new ArrayList<User>();
+        this.studentScore = new ArrayList<Score>();
+        this.capacity = 30;
+    }
+
+    public Course(Long code, Term term, Teacher teacher, List<CourseTimeInweak> presentationTime, List<CourseTimeInweak> TATime, String name, String examTime, List<Course> prerequisiteCourses, int type, int group) {
         Code = code;
         this.term = term;
         this.teacher = teacher;
@@ -125,11 +142,11 @@ public class Course {
         this.name = name;
     }
 
-    public Date getExamTime() {
+    public String getExamTime() {
         return examTime;
     }
 
-    public void setExamTime(Date examTime) {
+    public void setExamTime(String examTime) {
         this.examTime = examTime;
     }
 
