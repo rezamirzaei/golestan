@@ -28,7 +28,7 @@ public class CourseService {
     }
 
     @Transactional
-    public List loadAll() {
+    public List<Course> loadAll() {
         return courseDAO.getAll();
     }
 

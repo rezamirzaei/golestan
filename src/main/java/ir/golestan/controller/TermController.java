@@ -31,7 +31,7 @@ public class TermController {
             model.addAttribute("terms",terms);
             return "makeTerm";
         }
-        return "adminPanel";
+        return "login";
     }
     @RequestMapping(value = "/maketerm" ,method = RequestMethod.POST)
     public String makeTerm(@RequestParam("code")int code,@RequestParam("year")int year,@RequestParam("season")String season,Model model){
@@ -46,7 +46,7 @@ public class TermController {
             model.addAttribute("terms",terms);
             return "makeTerm";
         }
-        return "adminPanel";
+        return "login";
     }
 
 }

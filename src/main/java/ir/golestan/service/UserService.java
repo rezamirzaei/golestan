@@ -1,5 +1,6 @@
 package ir.golestan.service;
 
+import ir.golestan.dao.TeacherDAO;
 import ir.golestan.dao.UserDAO;
 import ir.golestan.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,8 @@ public class UserService {
     TermService termService;
     @Autowired
     CourseService courseService;
+    @Autowired
+    TeacherService teacherService ;
     @Transactional
     public boolean login(String username, String password) {
         User user = userDAO.getById(username);
@@ -44,6 +47,9 @@ public class UserService {
         boolean valid = userDAO.validNewUser(username);
         if (valid) {
             userDAO.create(user);
+            if (Objects.equals(role, "teacher")){
+                teacherService.create(username);
+            }
             if (!inAdmin){
                 httpSession.setAttribute("username", user.getUsername());
                 httpSession.setAttribute("name", name);

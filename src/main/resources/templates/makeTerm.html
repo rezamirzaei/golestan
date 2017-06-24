@@ -62,7 +62,7 @@
                                     <td th:text="${term.code}">1</td>
                                     <td th:text="${term.season}">پاییز</td>
                                     <td th:text="${term.year}">1396</td>
-                                    <td><a href="">ایجاد درس</a></td>
+                                    <td><a th:href="@{/course/create/{termCode}(termCode=${term.code})}">ایجاد درس</a></td>
                                 </tr>
                                 </tbody>
                             </table>

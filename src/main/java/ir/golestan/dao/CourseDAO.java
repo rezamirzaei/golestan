@@ -28,7 +28,7 @@ public class CourseDAO {
         return (Course) sessionFactory.getCurrentSession().get(Course.class, id);
     }
 
-    public List getAll() {
+    public List<Course> getAll() {
         Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Course.class);
         return criteria.list();
     }

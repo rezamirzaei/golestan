@@ -33,20 +33,31 @@ public class CourseController {
                 return "courseRegisteringEdit";
             }
         }
-        return "home";
+        return "login";
     }
 
     @RequestMapping(value = "course/{id}/change", method = RequestMethod.POST)
     public String changeCourse(@PathVariable("id") Long id, Long code, Term term, Teacher teacher, List<CourseTimeInweak> presentationTime, List<CourseTimeInweak> TATime, String name, String examTime, List<Course> prerequisiteCourses, int type, int group, Model model) {
         if (httpSession.getAttribute("role") != null && ((String) httpSession.getAttribute("role")).compareTo("admin") == 0)
             courseService.update(id, code, term, teacher, presentationTime, TATime, name, examTime, prerequisiteCourses, type, group);
-        return "home";
+        return "login";
     }
 
-    @RequestMapping(value = "course/{termCode}/create", method = RequestMethod.POST)
+    @RequestMapping(value = "course/create/{termCode}", method = RequestMethod.GET)
+    public String create(@PathVariable("termCode")Long termCode ,Model model){
+        if (httpSession.getAttribute("role") != null && ((String) httpSession.getAttribute("role")).compareTo("admin") == 0){
+            model.addAttribute("termCode" ,termCode);
+            List<Course> courses = courseService.loadAll();
+            model.addAttribute("courses",courses);
+            return "makeCourseInTerm";
+        }
+        return "login";
+    }
+
+    @RequestMapping(value = "course/create/{termCode}", method = RequestMethod.POST)
     public String create(@PathVariable("termCode")Long termCode ,@RequestParam("code")Long code,@RequestParam("teacherUsername") String  teacherUsername,@RequestParam("name") String name,@RequestParam("examDate") String examTime,@RequestParam(value = "type",defaultValue="0") int type,@RequestParam(value = "group" ,defaultValue = "0") int group, Model model) {
         if (httpSession.getAttribute("rule") != null && ((String) httpSession.getAttribute("role")).compareTo("admin") == 0)
             courseService.create(code, termCode, teacherUsername, name, examTime, type, group);
-        return "home";
+        return "login";
     }
 }
