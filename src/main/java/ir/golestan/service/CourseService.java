@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -15,7 +16,11 @@ import java.util.List;
 @Service
 public class CourseService {
     @Autowired
+    ThisTerm thisTerm;
+    @Autowired
     CourseDAO courseDAO;
+    @Autowired
+    TermService termService;
 
     @Transactional
     public Course loadById(Long id) {
@@ -55,7 +60,29 @@ public class CourseService {
     public List<User> loadUser(Course course){
         return course.getStudents();
     }
-
+    @Transactional
+    public List<Course> getThisTermCourse(){
+        List<Course> courses = loadAll();
+        List<Course> courseList = new ArrayList<Course>();
+        for(Course course:courses){
+            if(course.getTerm().getCode()==thisTerm.getTerm().getCode()){
+                courseList.add(course);
+            }
+        }
+        return courseList;
+    }
+    @Transactional
+    public List<Course> getCoursByTerm(Long code){
+        List<Course> courses = loadAll();
+        List<Course> courseList = new ArrayList<Course>();
+        Term term =termService.load(code);
+        for(Course course:courses){
+            if(course.getTerm().getCode()==term.getCode()){
+                courseList.add(course);
+            }
+        }
+        return courseList;
+    }
 
 
 

@@ -219,6 +219,16 @@ public class Course {
         }
         return 0;
     }
+    public Score getScoreWithCourse(String username){
+        for(int i =0;i<studentScore.size();i++){
+            Score sScore = studentScore.get(i);
+            if(sScore.getUsername()==username){
+                return sScore;
+            }
+        }
+        return null;
+    }
+
 
     public void setCapacity(int capacity) {
         this.capacity = capacity;

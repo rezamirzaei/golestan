@@ -1,14 +1,13 @@
 package ir.golestan.service;
 
 import ir.golestan.dao.UserDAO;
-import ir.golestan.model.User;
+import ir.golestan.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpSession;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by Reza-PC on 5/28/2017.
@@ -16,10 +15,15 @@ import java.util.List;
 @Service
 public class UserService {
     @Autowired
+    ThisTerm thisTerm;
+    @Autowired
     HttpSession httpSession;
     @Autowired
     private UserDAO userDAO;
-
+    @Autowired
+    TermService termService;
+    @Autowired
+    CourseService courseService;
     @Transactional
     public boolean login(String username, String password) {
         User user = userDAO.getById(username);
@@ -90,4 +94,8 @@ public class UserService {
     public List<User> loadAll() {
         return userDAO.loadAll();
     }
+
+
+
+
 }
