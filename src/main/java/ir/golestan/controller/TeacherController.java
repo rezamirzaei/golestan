@@ -2,8 +2,6 @@ package ir.golestan.controller;
 
 import ir.golestan.model.Course;
 import ir.golestan.model.Score;
-import ir.golestan.model.Student;
-import ir.golestan.model.User;
 import ir.golestan.service.CourseService;
 import ir.golestan.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
