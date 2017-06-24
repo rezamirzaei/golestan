@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by Reza-PC on 6/21/2017.
@@ -24,16 +25,18 @@ public class TermController {
     TermService termService;
     @RequestMapping(value = "/maketerm",method = RequestMethod.GET)
     public String mainTerm(Model model){
-        if(httpSession.getAttribute("username")!=null&&((String)httpSession.getAttribute("rule")).compareTo("admin")==0){
+        String role = ((String)httpSession.getAttribute("role"));
+        if(httpSession.getAttribute("username")!=null && Objects.equals(role, "admin")){
             List<Term> terms = termService.loadAll();
             model.addAttribute("terms",terms);
             return "makeTerm";
         }
-        return "home";
+        return "adminPanel";
     }
     @RequestMapping(value = "/maketerm" ,method = RequestMethod.POST)
     public String makeTerm(@RequestParam("code")int code,@RequestParam("year")int year,@RequestParam("season")String season,Model model){
-        if(httpSession.getAttribute("username")!=null&&((String)httpSession.getAttribute("rule")).compareTo("admin")==0){
+        String role = ((String)httpSession.getAttribute("role"));
+        if(httpSession.getAttribute("username")!=null&&Objects.equals(role, "admin")){
             Term term = new Term();
             term.setCode((long) code);
             term.setSeason(season);
@@ -43,7 +46,7 @@ public class TermController {
             model.addAttribute("terms",terms);
             return "makeTerm";
         }
-        return "home";
+        return "adminPanel";
     }
 
 }

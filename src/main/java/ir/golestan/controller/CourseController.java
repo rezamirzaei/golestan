@@ -26,7 +26,7 @@ public class CourseController {
 
     @RequestMapping(value = "course/{id}/change", method = RequestMethod.GET)
     public String changeCourse(@PathParam("id") Long id, Model model) {
-        if (httpSession.getAttribute("rule") != null && ((String) httpSession.getAttribute("rule")).compareTo("admin") == 0) {
+        if (httpSession.getAttribute("role") != null && ((String) httpSession.getAttribute("role")).compareTo("admin") == 0) {
             Course course = courseService.loadById(id);
             if (course != null) {
                 model.addAttribute(course);
@@ -38,14 +38,14 @@ public class CourseController {
 
     @RequestMapping(value = "course/{id}/change", method = RequestMethod.POST)
     public String changeCourse(@PathVariable("id") Long id, Long code, Term term, Teacher teacher, List<CourseTimeInweak> presentationTime, List<CourseTimeInweak> TATime, String name, Date examTime, List<Course> prerequisiteCourses, int type, int group, Model model) {
-        if (httpSession.getAttribute("rule") != null && ((String) httpSession.getAttribute("rule")).compareTo("admin") == 0)
+        if (httpSession.getAttribute("role") != null && ((String) httpSession.getAttribute("role")).compareTo("admin") == 0)
             courseService.update(id, code, term, teacher, presentationTime, TATime, name, examTime, prerequisiteCourses, type, group);
         return "home";
     }
 
     @RequestMapping(value = "course/create", method = RequestMethod.POST)
     public String create(Long code, Term term, Teacher teacher, List<CourseTimeInweak> presentationTime, List<CourseTimeInweak> TATime, String name, Date examTime, List<Course> prerequisiteCourses, int type, int group, Model model) {
-        if (httpSession.getAttribute("rule") != null && ((String) httpSession.getAttribute("rule")).compareTo("admin") == 0)
+        if (httpSession.getAttribute("role") != null && ((String) httpSession.getAttribute("role")).compareTo("admin") == 0)
             courseService.create(code, term, teacher, presentationTime, TATime, name, examTime, prerequisiteCourses, type, group);
         return "home";
     }

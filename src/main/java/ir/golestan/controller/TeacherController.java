@@ -28,7 +28,7 @@ public class TeacherController {
     CourseService courseService;
     @RequestMapping(value = "/terms")
     public String getTerms(Model model){
-        if(httpSession.getAttribute("rule")!=null&&((String)httpSession.getAttribute("rule")).compareTo("teacher")==0){
+        if(httpSession.getAttribute("role")!=null&&((String)httpSession.getAttribute("rule")).compareTo("teacher")==0){
             model.addAttribute("terms",teacherService.loadAllTerm((String)httpSession.getAttribute("username"))) ;
             return null;
         }
@@ -36,7 +36,7 @@ public class TeacherController {
     }
     @RequestMapping(value = "/term/{termCode}")
     public String getCourseInTerm(@PathVariable("termCode")Long termCode,Model model){
-        if(httpSession.getAttribute("rule")!=null&&((String)httpSession.getAttribute("rule")).compareTo("teacher")==0){
+        if(httpSession.getAttribute("role")!=null&&((String)httpSession.getAttribute("rule")).compareTo("teacher")==0){
             List<Course> courses = teacherService.loadCourseByIdTerm((String)httpSession.getAttribute("username"),termCode);
             model.addAttribute("courses",courses) ;
             return null;
@@ -45,7 +45,7 @@ public class TeacherController {
     }
     @RequestMapping(value = "term/{termCode}/{courseCode}",method = RequestMethod.GET)
     public String getStudentIncourseInterm(@PathVariable("termCode")Long termCode,@PathVariable("courseCode")Long courseCode,Model model){
-        if(httpSession.getAttribute("rule")!=null&&((String)httpSession.getAttribute("rule")).compareTo("teacher")==0){
+        if(httpSession.getAttribute("role")!=null&&((String)httpSession.getAttribute("rule")).compareTo("teacher")==0){
             List<Score> studentScore = teacherService.loadStudentScore((String)httpSession.getAttribute("username"),courseCode);
             model.addAttribute("students",studentScore);
             return null;
